@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%--  --%>
+<%
+	//공통적으로 사용해야할 변수는 정의해놓고 사용
+	String dataFolder = "c:\\data";
+
+%>

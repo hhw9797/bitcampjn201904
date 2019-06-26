@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+	* {
+		margin : 0;
+		padding : 0;
+	}
+	div {
+		width : 960px;
+	}
+	
+	#header {
+		height: 50px;
+		padding : 0 20px;
+		border-bottom : 1px solid #DDD;
+	}
+	#header>h2 {
+		line-height: 50px;
+	}
+	
+	#nav {
+		height : 30px;
+		border-bottom: 1px solid #DDD;
+	}
+	
+	#nav>ul {
+		overflow : hidden; /* 또는 contents 에서 clear both */
+	}
+	#nav>ul>li {
+		list-style : none;
+		float : left;
+		padding : 0 15px;
+		
+		line-height: 30px;
+	}
+</style>
+</head>
+<body>
+
+	<div id="header">
+		<h2>Member Manager</h2>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href="#">홈</a></li>
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">회원가입</a></li>
+			<li><a href="#">회원리스트</a></li>
+		</ul>
+	</div>
+
+	<div id="contents">
+	
+	</div>
+
+	<div id="footer">
+	
+	</div>
+
+
+</body>
+</html>

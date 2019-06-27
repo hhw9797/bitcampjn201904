@@ -18,6 +18,10 @@
 		<br> uname 파라미터의 값 :
 		<%=request.getParameter("username")%> --%>
 		
+		pageType = ${pageType} <br>
+		pNo = ${pNo} <br>
+		userName = ${userName}
+		
 		<%
 			Member member = (Member)request.getAttribute("result");
 		%>

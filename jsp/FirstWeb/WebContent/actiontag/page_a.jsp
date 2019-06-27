@@ -17,6 +17,12 @@
 		<br> uname 파라미터의 값 :
 		<%=request.getParameter("username")%> --%>
 		
+		pageType = ${pageType} <br>
+		pNo = ${pNo} <br>
+		userName = ${userName}
+		
+		<br><br><br><br>
+		
 		<%
 			Member member = (Member)request.getAttribute("result");
 		%>
@@ -25,8 +31,7 @@
 		아이디 : <%= member.getId() %> <br>
 		이름 : <%= member.getName() %> <br>
 		번호 : <%= member.getpNum() %> <br>
-		<a href="../session/viewSession.jsp">sessionView</a>
+	
 	</h1>
-
 </body>
 </html>

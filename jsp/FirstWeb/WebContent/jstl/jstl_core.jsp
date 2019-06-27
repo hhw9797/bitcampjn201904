@@ -38,7 +38,22 @@
 </style>
 </head>
 <body>
-
+	
+	<c:set value="test" var="msg" />
+	msg : ${msg}
+	
+	<c:if test="${msg eq 'test'}">
+		
+		msg의 문자열은 test와 같습니다.
+			
+	</c:if>
+	
+	<c:if test="${msg eq 'test'}" var="condition" />
+	
+	<br>
+	결과값은 : ${condition}
+	
+	<hr>
 	<h3>
 		${param.code}
 		<c:out value="${param.code}" escapeXml="false"> 
@@ -48,12 +63,14 @@
 	<hr>
 	<table>
 		<tr>
+			<td>index/count</td>
 			<td>이름</td>
 			<td>아이디</td>
 			<td>전화번호</td>
 		</tr>
-		<c:forEach items="${members}" var="member">
+		<c:forEach items="${members}" var="member" varStatus="status" begin="0" end="5">
 		<tr>
+			<td>${status.index} / ${status.count}</td>
 			<td>${member.name}</td>
 			<td>${member.id}</td>
 			<td>
@@ -65,6 +82,10 @@
 			</td>
 		</tr>
 		</c:forEach>
+		
+		<c:forTokens items="홍길동, 010-8888-6666, 서울" delims="," var="sel">
+			${sel} <br>
+		</c:forTokens>
 		
 	</table>
 

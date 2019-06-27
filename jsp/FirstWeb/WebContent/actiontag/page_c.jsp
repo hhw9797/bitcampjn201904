@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <style>
-
 </style>
 </head>
 <body>
@@ -18,6 +17,10 @@
 		no 파라미터의 값 : <%= request.getParameter("num") %>
 		<br>
 		uname 파라미터의 값 : <%= request.getParameter("username") %> --%>
+				
+		pageType = ${pageType} <br>
+		pNo = ${pNo} <br>
+		userName = ${userName}
 		
 		<%
 			Member member = (Member)request.getAttribute("result");

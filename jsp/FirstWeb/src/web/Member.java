@@ -38,6 +38,10 @@ public class Member {
 		this.pNum = pNum;
 	}
 
+	public int getNum() {
+		return 123;
+	}
+	
 	@Override
 	public String toString() {
 		return "Member [name=" + name + ", id=" + id + ", pNum=" + pNum +"]";

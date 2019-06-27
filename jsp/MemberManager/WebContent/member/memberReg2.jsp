@@ -16,6 +16,7 @@
 
 	// 내장객체에 회원정보 객체를 저장
 	application.setAttribute(memberInfo.getuId(), memberInfo);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,12 @@
 	<div id="contents">
 		<h3>회원가입 페이지</h3>
 		<hr>
+		
 		<h3>회원가입이 되었습니다.</h3>
+		
+		<%= memberInfo.makeHtmlDiv() %>
+		${memberInfo.makeHtmlDiv()}
+		
 	</div>
 	<!-- 컨텐츠 끝 -->
 

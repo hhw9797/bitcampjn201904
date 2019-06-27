@@ -5,6 +5,7 @@
 <%
 	LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +33,12 @@
 		if(loginInfo != null){
 	%>
 	<h3>회원 정보 페이지</h3>
+	${sessionScope.loginInfo}
 	<hr>
 	
-		<img src="../image/<%= loginInfo.getuPhoto()%>">
-		<h4>이름 : <%= loginInfo.getuName() %></h4>
-		<h4>아이디 : <%= loginInfo.getuId() %></h4>
+		<img src="../image/<%= loginInfo.getuPhoto()%>"><img src="../image/${loginInfo.uPhoto}">
+		<h4>이름 : <%= loginInfo.getuName() %> / ${sessionScope.loginInfo.uName}</h4>
+		<h4>아이디 : <%= loginInfo.getuId() %> / ${loginInfo.uId}</h4>
 	
 	<%--= loginInfo --%>
 	<%

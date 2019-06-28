@@ -52,7 +52,7 @@
 		
 		<h3>회원가입이 되었습니다.</h3>
 		
-		<%= memberInfo.makeHtmlDiv() %>
+		<%-- <%= memberInfo.makeHtmlDiv() %> --%>
 		${memberInfo.makeHtmlDiv()}
 		
 	</div>

@@ -31,8 +31,9 @@
 
 </fmt:timeZone>
 <br>	
+
 <c:forEach var="id" items="<%= java.util.TimeZone.getAvailableIDs() %>">
-${id}<br/>
+${id}<br>
 </c:forEach>
 
 	<hr>

@@ -72,7 +72,7 @@
 
 			<!-- 리스트 반복 시작 -->
 			
-			<c:forEach items="${mlistName}" var="mId" begin="1" varStatus="status">
+			<c:forEach items="${mlistName}" var="mId" varStatus="status">
 			<c:if test="${fn:contains(mId,'@')}"> <!-- mId : 원본문자열, @ : 포함하는 문자열 -->
 			<c:set var="mem" value="${applicationScope[mId]}" />
 			

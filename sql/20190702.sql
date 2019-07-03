@@ -94,3 +94,4 @@ from emp
 --where comm in(300,500,1400)
 where comm=300 or comm=500 or comm=1400
 ;
+

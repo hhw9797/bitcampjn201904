@@ -1,0 +1,89 @@
+-- 2019.07.04
+
+-- 그룹함수
+
+-- SUM(컬럼) : 그룹의 합을 반환
+
+-- 사원 테이블에서 사원의 월 급여(sal)의 총합을 구해보자
+select sum(sal) as "월 총급여"
+from emp
+;
+
+-- 10번 부서 소속 직원들의 월 급여 총액을 구해보자
+select sum(sal)
+from emp
+where deptno = 10
+;
+
+-- sum 함수에서 null 값 처리방식 : null 값은 무시한다.
+select sum(comm)
+from emp
+;
+select comm from emp;
+
+-- avg(컬럼) : 그룹에 포함된 값들의 평균값을 반환
+select avg(sal) as "전체사원의 평균 월급여"
+from emp
+;
+-- 그룹함수의 결과는 단일행의 하나의 컬럼
+select trunc(avg(sal)) as "전체사원의 평균 월급여"
+from emp
+;
+select trunc(avg(sal)) as "매니저의 평균 월급여"
+from emp
+where job='MANAGER'
+;
+
+-- avg 함수도 컬럼의 값이 null 일때 제외하고 처리
+select avg(comm)
+from emp
+;
+
+-- MAX(컬럼) : 최댓값 반환, MIN(컬럼) : 최솟값 반환
+select max(sal) as "최대급여", min(sal) as "최소급여"
+from emp
+;
+
+-- count(컬럼) : row의 갯수를 반환
+
+-- 회사에 소속된 사원의 수
+select count(*) as "전체 사원의 수"
+from emp
+;
+
+-- 10번 부서의 소속된 직원의 수
+select count(*)
+from emp
+where deptno = 10
+;
+
+-- 커미션을 받는 직원의 수
+select count(comm)
+from emp
+;
+
+-- 부서의 수를 구하자.
+select count(*)
+from dept
+;
+-- 사원들이 소속된 부서의 수
+select count(distinct deptno)
+from emp
+;
+
+select count(distinct job) as "업무 수"
+from emp
+;
+
+-- grouop by 컬럼이름 : row를 그룹핑 해서 처리, 집합함수(sum, avg, count..)
+-- 컬럼이름 -> 그룹핑의 기준
+select deptno, sum(sal), round(avg(sal)), count(*), count(comm), max(sal), min(sal)
+from emp
+group by deptno
+;
+
+-- 직무별 지표를 출력해보자
+select job,count(*) as "직원의 수", TO_CHAR(sum(sal), '999,999') as "급여의 총합", round(avg(sal)) as "급여의 평균", max(sal) as" 최대급여", min(sal) as "최소급여"
+from emp
+group by job
+;

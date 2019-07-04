@@ -87,3 +87,127 @@ select job,count(*) as "직원의 수", TO_CHAR(sum(sal), '999,999') as "급여의 총합
 from emp
 group by job
 ;
+
+-- 부서의 평균 급여가 2000 이상인 부서만 출력
+select deptno, sum(sal), round(avg(sal)), count(*), count(comm), max(sal), min(sal)
+from emp
+group by deptno
+having avg(sal) >= 2000
+;
+
+-- 부서의 최대급여가 2900 이상인 부서를 출력
+select deptno, sum(sal), round(avg(sal)), count(*), count(comm), max(sal), min(sal)
+from emp
+group by deptno
+having max(sal) >= 2900
+;
+
+
+
+
+--------------------------------------------------------------------------------------------
+-- JOIN : 2개 이상의 테이블 옆으로 붙인다. -> 표현하는 컬럼이 늘어난다.
+--------------------------------------------------------------------------------------------
+
+-- 테이블을 붙인다. CROSS JOIN
+select *
+from emp, dept
+where emp.deptno = dept.deptno
+;
+
+-- 이름이 'SCOTT'인 사원의 이름과 부서이름을 출력하자
+select ename, dname, emp.deptno
+from emp, dept
+where emp.deptno = dept.deptno and ename='SCOTT'
+;
+
+-- 주문 테이블에서 회원의 이름과, 주문 정보를 출력해보자
+select o.orderid, c.name
+from orders o, customer c
+where o.custid = c.custid and name='박지성'
+;
+
+select *
+from emp e, dept d
+where e.deptno = d.deptno
+;
+
+-- customer, book, orders
+select *
+from orders o, customer c, book b
+where o.custid=c.custid and b.bookid=o.bookid
+;
+
+-- 박지성 고객이 주문한 책의 이름을 출력
+select b.bookname, b.publisher
+from customer c, orders o, book b
+where c.custid=o.custid and o.bookid=b.bookid and c.name='박지성'
+;
+
+select *
+from salgrade
+;
+
+select ename, sal, s.grade
+from emp e, salgrade s
+where sal between s.losal and s.hisal 
+        and ename='SCOTT'
+;
+
+select e.ename || '의 매니저는 ' || m.ename || ' 입니다.'
+from emp e, emp m
+where e.mgr=m.empno
+order by m.ename
+;
+
+select e.empno, e.ename, e.mgr, m.ename
+from emp e, emp m
+where e.mgr=m.empno(+)
+;
+
+-- ANSI CROSS JOIN
+select *
+from emp cross join dept
+;
+
+select * 
+from emp, dept
+;
+
+-- ANSI INNER JOIN
+select *
+from emp inner join dept
+on emp.deptno=dept.deptno
+;
+
+select *
+from emp join dept
+on emp.deptno=dept.deptno
+;
+
+select *
+from emp join dept
+USING (deptno)
+;
+
+select e.ename, m.ename
+from emp e left outer join emp m
+on e.mgr = m. empno
+;
+
+select *
+from customer
+;
+select distinct(custid)
+from orders
+;
+
+select *
+from orders o, customer c
+where o.custid(+)=c.custid
+;
+
+select *
+from orders o right outer join customer c
+on o.custid=c.custid
+;

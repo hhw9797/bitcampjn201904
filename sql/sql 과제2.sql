@@ -11,9 +11,10 @@ from book
 where price >= 20000
 ;
 --(3) 박지성의총구매액(박지성의고객번호는1번으로놓고작성)
-select sum(saleprice) as "총구매액"
-from orders
-where custid = 1
+select sum(saleprice) as "총구매액", count(*) as "총구매횟수"
+from orders, customer
+where orders.custid = customer.custid 
+        and customer.name='박지성'
 ;
 --(4) 박지성이구매한도서의수(박지성의고객번호는1번으로놓고작성
 select count(*) as "구매한 도서의 수"

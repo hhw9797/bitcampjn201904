@@ -156,7 +156,7 @@ where sal between s.losal and s.hisal
 
 select e.ename || '의 매니저는 ' || m.ename || ' 입니다.'
 from emp e, emp m
-where e.mgr=m.empno
+where e.mgr=m.empno(+)
 order by m.ename
 ;
 

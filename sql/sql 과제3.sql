@@ -93,7 +93,7 @@ select * from emp;
 --28. 직급별 사원의 최저 급여를 출력하시오. 관리자를 알 수 없는 사원의 최저 급여가 2000 미만인 그룹은 제외시키고 결과를 급여에 대한 내림차순으로 정렬하여 출력하시오.
 select job, min(sal)
 from emp
-where mgr > 0
+where mgr is not null
 group by job
 having min(sal) > 2000
 order by min(sal) desc

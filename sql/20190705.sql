@@ -222,5 +222,6 @@ create table memberinfo (             -- default sysdate
     u_photo varchar2(30),
     r_egdate date default sysdate,
     constraint memberinfo_idx_pk primary key (idx),
-    constraint memberinfo_u_id_uk primary key (u_id)
+    constraint memberinfo_u_id_uk unique (u_id)
 );
+

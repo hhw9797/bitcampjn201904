@@ -2,8 +2,10 @@ package member;
 
 import java.util.Date;
 
+// usebean Class
 public class MemberInfo {
-	// 각 변수의 저근 제어지시자는 private 
+	
+	// 각 변수의 접근 제어지시자는 private 
 		private String uId;
 		private String uPW;
 		private String uName;

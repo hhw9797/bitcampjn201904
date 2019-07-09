@@ -1,0 +1,61 @@
+package networkreal;
+
+import java.util.Scanner;
+
+class Game {
+	int rcp;
+	int com;
+	Scanner sc = new Scanner(System.in);
+	
+	public void userInt() {
+		
+		while (true) {
+			if (rcp == 1 || rcp == 2 || rcp == 3) {
+				break;
+			} else {
+				System.out.println("정확한 번호를 입력하세요");
+				rcp = sc.nextInt();
+			}
+		}
+	}
+	/*
+	public void rcpGame() {
+
+		if (str.equals("1")) {
+			if (str1.equals("1")) {
+				System.out.println("서로 비겼습니다.");
+			} else if (str1.equals("2")) {
+				System.out.println("클라이언트가 졌습니다.");
+			} else {
+				System.out.println("클라이언트가 이겼습니다.");
+			}
+		} else if (str.equals("2")) {
+			if (str1.equals("1")) {
+				System.out.println("클라이언트가 이겼습니다.");
+			} else if (str1.equals("2")) {
+				System.out.println("서로 비겼습니다.");
+			} else {
+				System.out.println("클라이언트가 졌습니다.");
+			}
+		} else if (str.equals("3")) {
+			if (str1.equals("1")) {
+				System.out.println("클라이언트가 졌습니다.");
+			} else if (str1.equals("2")) {
+				System.out.println("클라이언트가 이겼습니다.");
+			} else {
+				System.out.println("서로 비겼습니다.");
+			}
+		}
+	}
+	*/
+	public void randumInt() {
+		rcp = sc.nextInt();
+		com = (int) (Math.random() * 3) + 1;
+		if (rcp == com)
+			System.out.println("비겼습니다.");
+		else if (com - rcp == 1 || com - rcp == -2)
+			System.out.println("이겼습니다.");
+		else
+			System.out.println("졌습니다.");
+	}
+}

@@ -1,0 +1,12 @@
+import javax.swing.JOptionPane;
+
+public class TreadEx2 {
+
+	public static void main(String[] args) {
+		
+		JOptionPane.showInputDialog("값을 입력해주세요.");
+		
+		System.out.println("입력완료");
+	}
+
+}

@@ -1,0 +1,12 @@
+import javax.swing.JOptionPane;
+
+public class TreadEx2 {
+
+	public static void main(String[] args) {
+		
+		String str = JOptionPane.showInputDialog("값을 입력해주세요.");// 입력이나 취소버튼 안누르면 대기상태
+		
+		System.out.println("입력완료" + str);
+	}
+
+}

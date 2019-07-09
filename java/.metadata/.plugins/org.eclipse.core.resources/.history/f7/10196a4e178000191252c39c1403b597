@@ -1,0 +1,22 @@
+
+public class Game1 {
+
+	public static void main(String[] args) {
+		
+		String num1;
+		String num2;
+		String num3;
+		
+		int ComBall [] =new int [3];
+		int UserBall [] = new int [3];
+		
+		System.out.println("숫자야구 게임을 시작합니다.");
+	
+		Comball = NumBaseballStrike;
+	}
+
+}
+
+static int[] NumBaseballStrike() {
+	for(i=0; i<)
+}

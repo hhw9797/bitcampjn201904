@@ -1,0 +1,32 @@
+
+public class Calcurator {
+	
+	int opCnt=0;
+	
+	public int add(int n1, int n2) {
+		opCnt++;
+		return n1+n2;
+	}
+
+	public int min(int n1, int n2) {
+		opCnt++;
+		return n1-n2;
+	}
+	
+	public void showopCnt() {
+		System.out.println("연산의 횟수 : " + opCnt);
+	}
+}
+
+
+class AddThread extends Thread {
+	Calcurator cal;
+	
+	public AddThread(Calcurator c) {
+		cal = c;
+	}
+	
+	public void run() {
+		System.out.println("1+2="+cal.add(1, 2));
+	}
+}

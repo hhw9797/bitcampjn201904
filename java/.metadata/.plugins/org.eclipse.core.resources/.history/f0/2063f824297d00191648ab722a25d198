@@ -1,0 +1,45 @@
+package test;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+
+public class ReaderWriterTest {
+
+	public static void main(String[] args) throws IOException {
+
+		char c1 = 'A';
+		char c2 = 'B';
+		
+		Writer writer = new FileWriter("test.txt");
+		
+		writer.write(c1);
+		writer.write(c2);
+		writer.write(c1);
+		writer.write(c2);
+		writer.write(c1);
+		writer.write(c2);
+		writer.write(c1);
+		writer.write(c2);
+		
+		writer.close();
+		
+		System.out.println("파일이 작성/생성 되었습니다.");
+		
+		Reader reader = new FileReader("test.txt");
+		
+		char[] cBuf = new char[10];
+		int readCnt = 0;
+		
+		readCnt = reader.read(cBuf, 0, cBuf.length);
+		
+		for(int i=0; i<readCnt; i++){
+			System.out.println(cBuf[i]);
+		}
+
+		reader.close();
+	}
+
+}

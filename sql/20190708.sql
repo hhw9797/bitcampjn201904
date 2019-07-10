@@ -274,6 +274,9 @@ where deptno=30
 ;
 select * from dept01;
 
+delete from emp
+where ename='HYEWON'
+;
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
@@ -304,6 +307,7 @@ values (memberinfo_idx_seq.nextval, 'foodlove', '3333', '출출이');
 
 insert into memberinfo (idx, u_id, u_pw, u_name, u_photo, r_egdate) 
 values (memberinfo_idx_seq.nextval, 'snoopy', '4444', '스누피', '','1995/01/01');
+
 
 
 update memberinfo
@@ -385,3 +389,17 @@ select * from dept01;
 
 insert into dept01 values (test_seq.nextval, 'DESIGN', 'SEOUL');
 delete from dept01;
+
+
+select * from dept;
+select * from emp;
+
+insert into dept values (60, 'Design', 'SEOUL');
+
+delete from dept where deptno=60;
+
+commit;
+
+select * 
+from emp e, dept d
+where e.deptno = d.deptno;

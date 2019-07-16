@@ -7,7 +7,7 @@
         $(document).ready(function () {
             $('#my-form').submit(function (event) {
                 // Ajax 요청을 수행합니다.
-                $('#wrap').load('/parameter', $(this).serializeArray());
+                $('#wrap').load('parameter.jsp', $(this).serializeArray());
 
                 // 기본 이벤트를 제거합니다.
                 event.preventDefault();
@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td><label for="region">Region</label></td>
-                <td><input id="region" name="region" type="text" /></td>
+                <td><input id="price" name="price" type="text" /></td>
             </tr>
         </table>
         <input type="submit" value="Get Ajax String" />

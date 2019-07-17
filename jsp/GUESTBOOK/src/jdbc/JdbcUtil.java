@@ -7,44 +7,48 @@ import java.sql.Statement;
 
 public class JdbcUtil {
 	
-	public static void close(ResultSet rs) {
-		
+	public static void close(ResultSet rs) {		
 		if(rs != null) {
 			try {
 				rs.close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}		
 	}
 	
-	public static void close(Statement stmt) {
+	public static void close(Statement stmt) {		
 		if(stmt != null) {
 			try {
 				stmt.close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}		
 	}
 	
-	public static void close(Connection conn) {
+	public static void close(Connection conn) {		
 		if(conn != null) {
 			try {
 				conn.close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}		
+	}
+	
+	public static void rollback(Connection conn ) {
+		
+		if(conn != null) {
+			try {
+				conn.rollback();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	//rollback은 Connection 객체에 있음
-	public static void rollback(Connection conn) {
-		try {
-			conn.rollback();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
 }

@@ -6,35 +6,34 @@
 <%
 	String pageNumberstr = request.getParameter("page");
 	
-	//페이지 숫자
-	int pageNumber = 1;
+	int pageNumber = 1 ;
 	
-	if(pageNumberstr != null) {
+	if(pageNumberstr != null){
 		pageNumber = Integer.parseInt(pageNumberstr);
 	}
 	
-	//핵심 처리할 서비스 객체
+	// 핵심 처리할 서비스 객체 
 	GetMessageListService service = GetMessageListService.getInstance();
 	
-	//응답 데이터의 결과
-	MessageListView viewData =service.getMessageList(pageNumber);
-	
+	// 응답 데이터의 결과
+	MessageListView viewData = service.getMessageListView(pageNumber);
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <style>
 	div {
-		border: 2px solid #333;
-		margin: 5px 0px;
-		width: 300px;
+		border : 2px solid #333;
+		margin : 5px 0px;
+		width : 300px;
 	}
 </style>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
+
 	<h3>방명록 글쓰기</h3>
 	<hr>
 	<form action="writeMessage.jsp" method="post">
@@ -44,7 +43,7 @@
 				<td><input type="text" name="guestName"></td>
 			</tr>
 			<tr>
-				<td>암호</td>
+				<td>비밀번호</td>
 				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>
@@ -52,36 +51,44 @@
 				<td><textarea rows="3" cols="30" name="message"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="등록"></td>
+				<td></td>
+				<td><input type="submit" value="등록"></td>
 			</tr>
 		</table>
 	</form>
+	
 	<hr>
 	<%
-		//isEmpty (메세지가 있는지 없는지 확인하는 메소드)
-		if(viewData.isEmpty()) {
+		if(viewData.isEmpty()){
 			%>
 			<h3>등록된 메시지가 없습니다.</h3>
 			<%
-		}else{
+		} else {
 			
-			for(Message message : viewData.getMessageList()){
+			for( Message message : viewData.getMessageList()){
+			
 			%>
-				<div>
-					메세지 번호 : <%= message.getId() %> <br>
-					손님 이름 : <%= message.getGuestName() %><br>
-					메세지 : <%= message.getMessage() %> <br>
-					<a href="confirmDeletion.jsp?messageId=<%= message.getId() %>">삭제하기</a>
-				</div>		
+			<div>
+				메시지 번호 : <%= message.getId() %><br>
+				손님 이름 : <%= message.getGuestName() %><br>
+				메시지 : <%= message.getMessage() %><br>
+				<a href="confirmDeletion.jsp?messageId=<%= message.getId() %>">삭제하기</a>
+			</div>
 			<%
 			}
+			
 		}
-	//[1],[2],[3] 페이지 번호
-	for(int i=1; i <= viewData.getPageTotalCount(); i++) {
-		%>
-			<a href="list.jsp?page=<%=i%>"> [ <%= i %> ] </a>
-		<%
-	}
+	
+	// [1] [2] [3]  
+	for(int i=1; i <= viewData.getPageTotalCount(); i++){
+	
 	%>
+	<a href="list.jsp?page=<%= i%>">[<%= i %>]</a> 
+	
+	<%
+	}
+		
+	%>
+	
 </body>
 </html>

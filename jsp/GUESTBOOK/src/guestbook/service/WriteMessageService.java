@@ -8,22 +8,23 @@ import guestbook.model.Message;
 import jdbc.ConnectionProvider;
 
 public class WriteMessageService {
-
+	
 	private static WriteMessageService service = new WriteMessageService();
 	
-	//static이없으면 외부에서 못가져옴
 	public static WriteMessageService getInstance() {
 		return service;
 	}
 	
 	private WriteMessageService() {}
 	
-	public int  write(Message message) {
-		int rCnt = 0;
+	
+	public int write(Message message) {
 		
-		//1. Connection 생성
-		//2. dao 생성
-		//3. insert 메서드 시랭
+		int rCnt = 0 ;
+		
+		// 1. Connection 생성
+		// 2. dao 생성
+		// 3. insert 메서드 실행
 		
 		Connection conn = null;
 		
@@ -34,13 +35,16 @@ public class WriteMessageService {
 			
 			rCnt = dao.insert(conn, message);
 			
-		} catch(SQLException e) {
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-	
 		
-		return rCnt;
+		return rCnt;	
+		
 	}
+	
+
 }

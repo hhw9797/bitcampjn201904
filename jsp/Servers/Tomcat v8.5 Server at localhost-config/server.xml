@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/><Context docBase="FirstWeb" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:FirstWeb"/><Context docBase="JDBC-WEB" path="/jdbc" reloadable="true" source="org.eclipse.jst.jee.server:JDBC-WEB"/><Context docBase="ajax" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:ajax"/><Context docBase="GUESTBOOK" path="/GUESTBOOK" reloadable="true" source="org.eclipse.jst.jee.server:GUESTBOOK"/></Host>
+      <Context docBase="MemberManager" path="/mm" reloadable="true" source="org.eclipse.jst.jee.server:MemberManager"/><Context docBase="FirstWeb" path="/web" reloadable="true" source="org.eclipse.jst.jee.server:FirstWeb"/><Context docBase="JDBC-WEB" path="/jdbc" reloadable="true" source="org.eclipse.jst.jee.server:JDBC-WEB"/><Context docBase="ajax" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:ajax"/><Context docBase="GUESTBOOK" path="/GUESTBOOK" reloadable="true" source="org.eclipse.jst.jee.server:GUESTBOOK"/><Context docBase="MVCtest" path="/MVCtest" reloadable="true" source="org.eclipse.jst.jee.server:MVCtest"/><Context docBase="Food" path="/Food" reloadable="true" source="org.eclipse.jst.jee.server:Food"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -1,4 +1,4 @@
-<%@page import="member.LoginInfo"%>
+<%@page import="sharehobby.model.member.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%-- <jsp:useBean id="loginInfo" class="member.MemberInfo" scope="session"/> --%>

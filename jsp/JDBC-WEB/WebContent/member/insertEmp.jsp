@@ -8,7 +8,6 @@
 <%
 	request.setCharacterEncoding("utf-8");
 %>
-<jsp:useBean id="member" class="member.Emp" />
 <jsp:setProperty property="*" name="member" />
 <%	
 	Connection conn = null;

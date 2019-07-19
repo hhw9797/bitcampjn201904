@@ -13,11 +13,11 @@
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="776"/>
-		<item key="DIALOG_Y_ORIGIN" value="168"/>
+		<item key="DIALOG_X_ORIGIN" value="897"/>
+		<item key="DIALOG_Y_ORIGIN" value="69"/>
 	</section>
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.server.ui.new.server"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.wst.css.ui.internal.wizard.NewCSSWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.wst.server.ui"/>
 			<item value="org.eclipse.wst.web.ui"/>

@@ -18,7 +18,6 @@
 			<item value="org.eclipse.m2e"/>
 			<item value="org.eclipse.pde.PDE"/>
 			<item value="org.eclipse.wst.web.ui"/>
-			<item value="org.eclipse.ui.Examples"/>
 		</list>
 	</section>
 	<section name="CleanDialogSettings">

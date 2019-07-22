@@ -37,7 +37,6 @@
             <div id="regForm">
                 <!--input 의 width값을 길게 주면 아래 행으로 넘어가니까 효과 있음!-->
                 <!--.inputbox는 박스 클릭시 색상 주기, .input은 width설정-->
-                
                 <div class="warning">
                     <label for="id"><h4>아이디</h4></label>
                     <span class="inputbox"><input id="id" name="u_id" class="input"></span>

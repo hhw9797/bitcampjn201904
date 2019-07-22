@@ -15,7 +15,7 @@
 	Connection conn = ConnectionProvider.getConnection();
 	FoodPostDao dao = FoodPostDao.getInstance();
 
-	int uNum = dao.find_uNum(conn, u_id);
+	int uNum = dao.find_uNum(conn, uId);
 %>
 <!DOCTYPE html>
 <html>
@@ -42,6 +42,7 @@ input[type=text] {
 textarea { 
 	margin: 2px;
 }
+
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
@@ -68,14 +69,14 @@ textarea {
 				<td>작성자</td>
 				<!-- 회원번호 hidden값으로 받아서 처리함. -->
 				<!-- session login정보 가져와서 처리함 -->
-				<td><input type="hidden" name="uNum" value="<%=uNum%>"><%=uId%></td>
+				<td><input type="hidden" name="u_num" value="<%=uNum%>"><%=uId%></td>
 			</tr>
 			<tr>
 				<td id="title">제 목</td>
 				<td><input name="bf_title" type="text" size="70" value="" /></td>
 			</tr>
 			<tr>
-				<td id="title">식당 이름</td>
+				<td id="title">식당 번호</td>
 				<td><input name="hf_num" type="text" size="10" value="" /></td>
 			</tr>
 			<tr>

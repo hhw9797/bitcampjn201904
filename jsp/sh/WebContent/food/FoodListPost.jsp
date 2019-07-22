@@ -24,6 +24,9 @@
 <link href="/sh/css/default_css.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 
+#wrap {
+	weight : 30px;
+}
 #topForm {
 	text-align: right;
 }
@@ -31,6 +34,7 @@
 #list {
 	text-align: center;
 }
+
 </style>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -66,18 +70,16 @@
 		<!-- 게시글 목록 부분 -->
 		<br>
 		
+
 		<%
-			if(viewData.isEmpty()) {
-		%>
-		<h3>등록된 메시지가 없습니다.</h3>
-		<%
-			}else {
+			
 		
 			for (FoodPost foodpost : viewData.getPostList()) {
 			
 			%>
 		<div>
 			<table id="list" width="800" border="3" align="center">
+			
 				<tr heigh="30">
 					<td>글번호</td>
 					<td>제목</td>
@@ -86,25 +88,26 @@
 					<td>수정 | 삭제</td>
 				</tr>
 				
-					<tr>
-						<td><%=foodpost.getBf_num() %></td>
-						<td><a href="#"><%=foodpost.getBf_title() %></a></td>
-						<td><a href="#"> <%=foodpost.getU_num() %> </a></td>
-						<td><%=foodpost.getBf_time() %></td>
-						<td><a href="FoodUpdatePost.jsp?bf_num=<%=foodpost.getBf_num()%>">수정하기</a> | 
-						<a href="FoodDeletePost.jsp?bf_num=<%=foodpost.getBf_num()%>">삭제하기</a> <br>
-					</tr>
+				<tr>
+					<td><%=foodpost.getBf_num() %></td>
+					<td><a href="#"><%=foodpost.getBf_title() %></a></td>
+					<td><a href="#"> <%=foodpost.getU_num() %> </a></td>
+					<td><%=foodpost.getBf_time() %></td>
+					<td><%=foodpost.getBf_cont() %></td>
+					<td><a href="FoodUpdatePost.jsp?bf_num=<%=foodpost.getBf_num()%>">수정하기</a> | 
+					<a href="FoodDeletePost.jsp?bf_num=<%=foodpost.getBf_num()%>">삭제하기</a> <br>
+				</tr>
 				
 			</table>
 			
 		</div>
 		<% 
 			}
-			}
+			
 		//[1] [2] [3]
 		for(int i=1; i<=viewData.getPageTotalCount(); i++){
 		%>
-		<ahref="boardmain.jsp?page=<%=i%>">[<%=i%>]</a>
+		<ahref="FoodListPost.jsp?page=<%=i%>">[<%=i%>]</a>
 		​
 		<%
 		}

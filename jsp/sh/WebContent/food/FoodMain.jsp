@@ -23,7 +23,7 @@
 		<h1>맛집 소개</h1>
 		<hr>
 		<h3>식당이름</h3>
-		<a href="FoodWritePost.jsp">맛집 리뷰하기</a>
+		<a href="FoodWritePost.jsp">맛집 리뷰하기</a> | <a href="FoodListPost">맛집 리뷰글 보기</a>
 		<hr>
 	</div>
 

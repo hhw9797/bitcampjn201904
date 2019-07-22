@@ -7,11 +7,15 @@
 		<item value="NULL_RUNTIME"/>
 	</list>
 	<list key="J2EE_EXPORT_JST_WEB">
-		<item value="C:\Users\5CLASS-184\Desktop\FirstWeb.war"/>
+		<item value="C:\Users\5CLASS-184\Desktop\sh_01.war"/>
+		<item value="C:\Users\5CLASS-184\Downloads\sh_01.war"/>
 		<item value="C:\Users\5CLASS-184\Desktop\sh.war"/>
+		<item value="C:\Users\5CLASS-184\Desktop\FirstWeb.war"/>
 		<item value="C:\Users\5CLASS-184\Desktop\first.war"/>
 	</list>
 	<list key="J2EE_IMPORT_null">
+		<item value="C:\Users\5CLASS-184\Downloads\sh_01.war"/>
+		<item value="C:\Users\5CLASS-184\Downloads\sh.war"/>
 		<item value="C:\Users\5CLASS-184\Documents\카카오톡 받은 파일\GUESTBOOK.war"/>
 		<item value="C:\Users\5CLASS-184\Downloads\ajax.war"/>
 	</list>

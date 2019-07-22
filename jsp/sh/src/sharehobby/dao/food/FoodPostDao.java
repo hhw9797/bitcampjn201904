@@ -26,7 +26,7 @@ public class FoodPostDao {
 		int rCnt = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into board_food (bf_num, bf_title, bf_star, bf_cont, bf_photo, bf_time, u_num, hf_num) values(b_food_num_seq.nextval,?,?,?,?,sysdate, 30, 1)";
+		String sql = "insert into board_food (bf_num, bf_title, bf_star, bf_cont, bf_photo, u_num, hf_num, bf_time) values(b_food_num_seq.nextval,?,?,?,?,?,?,sysdate)";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -34,6 +34,8 @@ public class FoodPostDao {
 			pstmt.setFloat(2, food.getBf_star());
 			pstmt.setString(3, food.getBf_cont());
 			pstmt.setString(4, food.getBf_photo());
+			pstmt.setInt(5, food.getU_num());
+			pstmt.setInt(6, food.getHf_num());
 
 			rCnt = pstmt.executeUpdate();
 

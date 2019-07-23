@@ -8,7 +8,7 @@ import java.util.List;
 import jdbc.ConnectionProvider;
 import sharehobby.dao.food.FoodPostDao;
 import sharehobby.model.food.FoodPost;
-import sharehobby.model.food.FoodPostListView;
+import sharehobby.model.food.FoodPostList;
 
 public class GetPostListService {
 	
@@ -21,15 +21,15 @@ public class GetPostListService {
 	}
 	
 	//1. 한페이지에 보여줄 게시글의 개수
-	private static final int POST_COUNT_PER_PAGE = 10;
+	private static final int POST_COUNT_PER_PAGE = 5;
 	
-	public FoodPostListView getPostListView(int pageNumber) {
+	public FoodPostList getPostListView(int pageNumber) {
 		
 		int currentPageNumber = pageNumber;
 		
 		Connection conn;
 		
-		FoodPostListView view = null;
+		FoodPostList view = null;
 		
 		try {
 			// Connection
@@ -57,7 +57,7 @@ public class GetPostListService {
 				currentPageNumber = 0;
 				postList = Collections.emptyList();
 			}
-			view = new FoodPostListView(postTotalCount, currentPageNumber, postList, POST_COUNT_PER_PAGE, firstRow, endRow);
+			view = new FoodPostList(postTotalCount, currentPageNumber, postList, POST_COUNT_PER_PAGE, firstRow, endRow);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

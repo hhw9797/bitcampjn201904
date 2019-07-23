@@ -1,5 +1,5 @@
 <%@page import="sharehobby.service.food.WritePostService"%>
-<%@page import="sharehobby.model.food.FoodPostListView"%>
+<%@page import="sharehobby.model.food.FoodPostList"%>
 <%@page import="sharehobby.service.food.GetPostListService"%>
 <%@page import="sharehobby.model.food.FoodPost"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -41,10 +41,24 @@
 	<!-- header 끝 -->
 
 	<!-- contents 시작 -->
-	<h1>
-		<%=cnt > 0 ? "방명록에 메시지를 남겼습니다." : "메시지 등록이 되지 않았습니다."%>
-	</h1>
-	<a href="FoodListPost.jsp">맛집 게시판으로 이동</a>
+	<script>
+	
+<% 
+	
+	if(cnt>0){
+		
+	%>
+	alert("리뷰가 작성되었습니다."); 
+	
+	<%} else { %>
+		alert("리뷰가 등록되지 않았습니다.");
+		
+		
+	<%} %>
+	
+	location.href="FoodListPost.jsp";
+	
+	</script>
 	
 	<!-- contents 끝 -->
 	

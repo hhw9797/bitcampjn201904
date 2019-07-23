@@ -3,7 +3,7 @@ package sharehobby.model.food;
 import java.util.List;
 
 
-public class FoodPostListView {
+public class FoodPostList {
 	
 	private int postTotalCount;
 	private int currentPageNumber;//현재페이지 넘버가 무엇으로 되어있는지
@@ -14,7 +14,7 @@ public class FoodPostListView {
 	private int endRow;
 	
 	
-	public FoodPostListView(int postTotalCount, int currentPageNumber, List<FoodPost> postList, 
+	public FoodPostList(int postTotalCount, int currentPageNumber, List<FoodPost> postList, 
 			int postCountPerPage, int firstRow, int endRow) {
 		super();
 		this.postTotalCount = postTotalCount;

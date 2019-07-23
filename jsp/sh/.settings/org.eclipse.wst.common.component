@@ -2,7 +2,8 @@
     <wb-module deploy-name="sh">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/sh/build/classes"/>
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
         <property name="context-root" value="sh"/>
+        <property name="java-output-path" value="/sh/build/classes"/>
     </wb-module>
 </project-modules>

@@ -13,7 +13,7 @@ public class DateService implements Service{
 		request.setAttribute("result", new Date());
 		// view 지정 반환
 		
-		return "/datePage.jsp";
+		return "/simplePage.jsp";
 		
 	}
 

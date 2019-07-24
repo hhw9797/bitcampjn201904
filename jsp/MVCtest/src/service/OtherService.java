@@ -10,7 +10,7 @@ public class OtherService implements Service{
 		
 		request.setAttribute("result", new Date());
 		
-		return "/datePage.jsp";
+		return "/simplePage.jsp";
 		
 		
 	}

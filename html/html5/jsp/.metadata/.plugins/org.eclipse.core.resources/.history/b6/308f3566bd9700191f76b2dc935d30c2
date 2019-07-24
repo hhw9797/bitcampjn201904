@@ -1,0 +1,13 @@
+package web;
+
+public class LoginInfo {
+	
+	private String id;
+	private String name;
+	private String photo;
+	private String nicname;
+	private int grade;
+	private String pNum;
+	
+	
+}

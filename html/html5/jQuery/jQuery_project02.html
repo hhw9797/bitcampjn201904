@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 회원관리</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main_wrap {
+            width: 478px;
+            /*height: 200px;*/
+            margin: 0 auto;
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            background-color: aliceblue;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #AAA;
+            margin: 10px 0;
+        }
+
+        #regBox>form>table {
+            width: 100%;
+        }
+
+        #regBox>form>table td {
+            width: 25%;
+            padding: 5px;
+        }
+
+        .input {
+            width: 100%;
+            font-size: 16px;
+            padding: 3px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        input[type=submit] {
+            background-color: cornflowerblue;
+            color: aliceblue;
+            border: 1px solid #DDD;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+
+        label {
+            display: block;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table td {
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #DDD;
+            background-color: white;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        #editBox {
+            background-color: #FFF;
+            width: 300px;
+            padding: 10px;
+            border: 5px solid #AAA;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -155px;
+            display: none;
+        }
+
+        #editBox>form>table {
+            width: 100%;
+        }
+
+        #editBox>form>table td {
+            width: 50%;
+            padding: 5px;
+        }
+
+        .reinput {
+            font-size: 16px;
+            padding: 2px;
+            display: block;
+        }
+
+        .editbtn {
+            width: 50%;
+        }
+
+        #cancel {
+            background-color: crimson;
+            color: aliceblue;
+            border: 1px solid #DDD;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+        var members;
+
+        function Member(id, pw, name) {
+            this.userId = id;
+            this.userPw = pw;
+            this.userName = name;
+        }
+        
+        $(document).ready(function() {
+            if (localStorage.getItem('members') == null) {
+                
+                members = [];
+                
+                localStorage.setItem('members', JSON.stringify(members));
+            } else {
+                
+                members = JSON.parse(localStorage.getItem('members'));
+                setListTable();
+            }
+            
+            var regForm = $('#regForm');
+            
+            regForm.submit(function() {
+                
+                var uId = $('#userId').val();
+                var uPw = $('#userPw').val();
+                var uname = $('#userName').val();
+                
+                if (uId.length < 1) {
+                    alert('아이디를 입력해주세요.');
+                    $('#userId').focus();
+                    return false;
+                }
+                
+                if (uPw.length < 1) {
+                    alert('비밀번호를 입력해주세요.');
+                    $('#userPw').focus();
+                    return false;
+                }
+                
+                if (uname.length < 1) {
+                    alert('이름을 입력해주세요.');
+                    $('#userName').focus();
+                    return false;
+                }
+                
+                //새로운 데이터로 객체 생성
+                var newMember = new Member(uId, uPw, uname);
+                
+                members.push(newMember);
+                
+                localStorage.setItem('members', JSON.stringify(members));
+                
+                alert('정상적으로 입력되었습니다');
+                
+                setListTable();
+                
+                regForm.reset();
+                
+                return false;
+            });
+            
+            // 회원수정 폼의 submit 재정의
+            var editForm = $('#editForm');
+            editForm.submit(function() {
+                
+                var editId = $('#editId').val();
+                var editPw = $('#editPw').val();
+                var editName = $('#editName').val();
+                var editIndex = $('#editIndex').val();
+                
+                if (editId.length < 1) {
+                    alert('아이디를 입력해주세요');
+                    $('#editId').focus();
+                    return false;
+                }
+                
+                if (editPw.length < 1) {
+                    alert('비밀번호를 입력해주세요');
+                    $('#editPw').focus();
+                    return false;
+                }
+                
+                if (editName.length < 1) {
+                    alert('이름을 입력해주세요');
+                    $('#editName').focus();
+                    return false;
+                }
+                
+                //회원정보 수정
+                members[editIndex].userId = editId;
+                
+                members[editIndex].userPw = editPw;
+                
+                members[editIndex].userName = editName;
+                
+                localStorage.setItem('members', JSON.stringify(members));
+                
+                alert('수정되었습니다');
+                
+                setListTable();
+                
+                $('#editBox').css('display', 'none');
+                
+                return false;
+            });
+            
+            var cBtn = $('#cancel');
+            cBtn.click(function() {
+                $('#editBox').css('display', 'none');
+            });
+        });
+
+        function setListTable() {
+            
+            var newHtml = '<tr>\n   <td>순번(index)</td>\n    <td>아이디(이메일)</td>\n <td>비밀번호</td>\n <td>이름</td>\n   <td>관리</td>\n</tr>\n';
+            
+            for (var i = 0; i < members.length; i++) {
+                
+                newHtml += '<tr>';
+                newHtml += '<td>' + i + '</td>';
+                newHtml += '<td>' + members[i].userId + '</td>';
+                newHtml += '<td>' + members[i].userPw + '</td>';
+                newHtml += '<td>' + members[i].userName + '</td>';
+                newHtml += '<td><a onclick="editMember(' + i + ');">수정</a>/ <a onclick="delMember(' + i + ');">삭제</a></td>';
+                newHtml += '</tr>';
+            }
+            
+            $('#listRow').html(newHtml);
+        }
+        
+        //회원정보 수정
+        function editMember(index) {
+            
+            $('#editBox').css('display', 'block');
+            
+            var eId = $('#editId');
+            var ePW = $('#editPw');
+            var eName = $('#editName');
+            var eIndex = $('#editIndex');
+            
+            eId.val(members[index].userId);
+            ePW.val(members[index].userPw);
+            eName.val(members[index].userName);
+            eIndex.val(index);
+        };
+            
+        //회원정보 삭제
+        function delMember(index) {
+            var delChk = confirm('삭제하시겠습니까?');
+            if (delChk) {
+                // 배열에서 요소 삭제
+                members.splice(index, 1);
+                
+                localStorage.setItem('members', JSON.stringify(members));
+                
+                alert('삭제되었습니다');
+                
+                setListTable();
+            }
+        };
+    </script>
+
+
+
+
+
+</head>
+
+<body>
+    <div id="main_wrap">
+        <h1 class="title"> Member Manager</h1>
+        <hr>
+
+        <!--데이터 입력 영역 시작-->
+        <div id="regBox">
+            <h3>회원 등록</h3>
+            <form id="regForm">
+                <table>
+                    <tr>
+                        <td>
+                            <!--<label for="userId">아이디(이메일)</label>-->
+                            <input type="text" id="userId" name="userId" class="input" placeholder="아이디(이메일)">
+                        </td>
+                        <td>
+                            <!--<label for="userPw">비밀번호</label>-->
+                            <input type="password" id="userPw" name="userPw" class="input" placeholder="비밀번호">
+                        </td>
+                        <td>
+                            <!--<label for="userName">이름</label>-->
+                            <input type="text" id="userName" name="userName" class="input" placeholder="이름">
+                        </td>
+                        <td>
+                            <input type="submit" value="등록" name="input" class="input">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+        <!--데이터 입력 영역 끝-->
+
+        <hr>
+
+        <!--회원 리스트 테이블 시작-->
+        <h3>Member List</h3>
+        <div id="memberlist">
+            <table class="table">
+                <tbody id="listRow">
+                    <tr>
+                        <td>순번(index)</td>
+                        <td>아이디(이메일)</td>
+                        <td>비밀번호</td>
+                        <td>이름</td>
+                        <td>관리</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--회원 리스트 테이블 끝-->
+
+
+        <!--회원 정보 수정 폼 시작-->
+        <div id="editBox">
+            <h3>회원 정보 수정</h3>
+            <form id="editForm" method="post">
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" id="editId" class="reinput"></td>
+                    </tr>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td><input type="password" id="editPw" class="reinput"></td>
+                    </tr>
+                    <tr>
+                        <td>이름</td>
+                        <td>
+                            <input type="text" id="editName" class="reinput">
+                            <input type="hidden" id="editIndex">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="수정" class="editbtn"><input type="button" value="취소" id="cancel" class="editbtn">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <!--회원 정보 수정 폼 끝-->
+    </div>
+
+</body></html>

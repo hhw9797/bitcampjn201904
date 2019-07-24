@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>한혜원 레이아웃 포트폴리오</title>
+        <style>
+            fieldset{
+                border: 8px solid #DDDDDD;
+            }
+            .search {
+                height: 20px;
+                border: 1px solid #DDDDDD;
+                border-radius: 50px 0 0 50px;
+                float: right;
+            }
+            .searchb {
+                height: 24px;
+                border: 1px solid #DDDDDD;
+                border-radius: 0 50px 50px 0;
+                float: right;
+            }
+            #header{
+                line-height: 10px;
+                color: black;
+            }
+            #header>p {
+                font-size: 13px;
+                color: darkgray;
+            }
+            #in{
+                display: block;
+                width:75%;
+                float: left;
+            }
+            #cate{
+                display: block;
+                width: ; 20%;
+                float: left;
+            }
+            #menu>ul {
+                list-style: none;
+                overflow: hidden;
+                
+            }
+            #menu>ul>li {
+                float: left;
+                padding: 0 15px;
+                
+            }
+            
+            #footer {
+                clear: both;
+            }
+            #cate>ul>li {
+                list-style: none;
+            }
+            #footer {
+                font-size: 12px;
+                color: blue;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+       <fieldset>       
+            <div id="header">
+                <h1>HTML5 Example Preview</h1>
+                <p>한빛 아카데미</p>
+            </div>
+            <div id="menu">
+               
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                </ul>
+                <div id=search>
+                    <input type="button" class="searchb" value="검색">
+                    <input type="text" class="search">
+                </div>
+                
+            </div>
+            <div id="in">
+                <div id="content1">
+                <h3>HTML5 개요와 활용</h3>
+                <p>2013년 02월 14일</p>
+                <img class="img" src="char.jpg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat debitis autem temporibus, possimus maiores aliquid eligendi, minima impedit aperiam incidunt architecto voluptate doloribus recusandae id minus laborum totam, fugit sapiente!</p>
+                </div>
+                <hr>
+            
+                <div id="content2">
+                    <h3>HTML5 응용과 실습</h3>
+                    <p>2013년 02월 14일</p>
+                    <img class="img" src="char.jpg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat debitis autem temporibus, possimus maiores aliquid eligendi, minima impedit aperiam incidunt architecto voluptate doloribus recusandae id minus laborum totam, fugit sapiente!</p>
+                </div>
+                <hr>
+            </div>
+            
+        
+            <div id="cate">
+                
+                <ul>
+                    <h4>카테고리</h4>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                </ul>
+                
+                <ul>
+                    <h4>최근 글</h4>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                </ul>
+            </div>
+            
+            <div id="footer">
+                
+                <p>Create By HanHyeWon</p>
+            </div>
+            
+        </fieldset>
+        
+    </body>
+</html>

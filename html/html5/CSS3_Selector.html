@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>CSS3 선택자</title>
+    <style>
+        
+        /*전체선택*/
+        * {
+            /*color: red;*/
+            /*background-color: aquamarine;*/
+        }
+
+
+        /*태그선택*/
+        h1 {
+            /*color: red;
+                text-align: center;
+                background-color: antiquewhite;*/
+        }
+        p {
+            /*color: blue;
+                line-height: 32px;
+                background-color: antiquewhite;*/
+        }
+        div {
+            /*background-color: antiquewhite;*/
+        }
+
+
+
+        /*중복선택*/
+        h1,
+        p,
+        div {
+            /*background-color: antiquewhite;*/
+        }
+
+
+
+        /*id 선택자*/
+        #header {
+            background-color: aqua;
+            margin: 0 auto;
+            /*상하 좌우*/
+            width: 500px;
+        }
+        #wrap {
+            background-color: yellow;
+            padding: 20px;
+            margin: 0 auto;
+            /*상하 좌우*/
+            width: 500px;
+        }
+        #content {
+            background-color: antiquewhite;
+            margin-bottom: 30px;
+        }
+        #aside {
+            background-color: aquamarine;
+        }
+        #footer {
+            background-color: burlywood;
+            margin: 0 auto;
+            /*상하 좌우*/
+            width: 500px;
+        }
+
+        
+
+        /*class 선택자*/
+        .select {
+                color: red;
+            }
+            .text_bold {
+                font-weight: bold;
+            }
+            .text_itelic {
+                font-style: italic;
+            }
+            li.text_bold {
+                background-color: bisque;
+            }
+
+
+
+        /*속성 선택자*/
+        input[type=text] {
+            background-color: aliceblue;
+            border: 1px solid #AAAAAA;
+            /*두께 모양 컬러*/
+        }
+        input[type=password] {
+            background-color: aqua;
+            border: 1px solid blue;
+        }
+        input[type=checkbox] {
+            width: 30px;
+            height: 30px;
+        }
+        input[type=button] {
+            padding: 10px 30px;
+            font-weight: 900;
+            background-color: cadetblue;
+            border: 1px solid #AAAAAA;
+            color: #FFFFFF;
+        }
+        
+        
+        
+        
+        #header h1 {
+            color: red;
+        }
+        #content h1 {
+            color: blue;
+        }
+        #header>h1 {
+            background-color: black;
+        }
+
+        #content>h1 {
+            background-color: black;
+        }
+
+        table>tbody>tr>th {
+            color: blue;
+        }
+        
+        
+        /*동위선택자*/
+        h1+h2{
+            color: orange;
+        }
+        h1~h2{
+            background-color: darkgray
+        }
+        
+        
+        h1:hover {
+            color: yellow;
+            background-color: darkblue;
+        }
+        h1+h2:hover {
+            color: #000000;
+            background-color: orange;
+        }
+        h1~h2:active{
+            color: red;
+            background-color: aqua;
+        }
+        
+        
+        input:disabled {
+            background-color: black;
+        }
+        input:focus {
+            background-color: limegreen;
+        }
+        
+        #menu {
+            display: none;
+        }
+        
+        input[type=checkbox] {
+            display: none;
+        }
+        
+        input[type=checkbox]:checked+div#menu {
+            display: block;
+            background-color: bisque;
+            
+        }
+        
+        label {
+            cursor: pointer;
+        }
+        label:hover {
+            background-color: bisque;
+        }
+        
+        
+        #cir {
+            width: 100px;
+            height: 100px;
+            
+            background-color: aquamarine;
+            /*border-radius: 10px 30px 40px 50px;*/
+            border-radius: 50px;
+        }
+        
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;    
+        }
+        
+        #gnb {
+            list-style:none;
+            overflow: hidden; /*영역밖의 범위는 포함시키지 않는다는 의미*/
+        }
+        
+        #gnb>li {
+            float:left;
+           /* padding: 5px 15px;*/
+            border: 1px solid #DDDDDD;
+            margin-left: -1px;
+        }
+        
+        #gnb>li:first-child { /*가장 첫번째메뉴 선택됨*/
+            background-color: coral;
+            border-radius: 10px 0 0 10px;
+        }
+        
+        #gnb>li:last-child {
+            background-color: coral;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        #gnb>li:nth-child(2n){ /*짝수번째*/
+            background-color: brown;            
+        }
+        
+        #gnb>li:nth-child(2n-1){ /*홀수번째*/
+            background-color: burlywood;            
+        }
+        
+        #gnb>li:hover {
+            background-color: darkblue;
+            color: yellow;
+        }
+        
+        a {
+            text-decoration: none;
+            display: block;
+            padding: 5px 15px;
+        }
+        
+        a:hover {
+            background-color: darkblue;
+            color: yellow;
+        }
+        
+        a{
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul id="gnb">
+        <li><a href="http://www.naver.com">menu-00</a></li>
+        <li><a href="http://www.naver.com">menu-01</a></li>
+        <li><a href="http://www.naver.com">menu-02</a></li>
+        <li><a href="http://www.naver.com">menu-03</a></li>
+        <li><a href="http://www.naver.com">menu-04</a></li>
+        <li><a href="http://www.naver.com">menu-05</a></li>
+        
+    </ul>
+    
+    
+    <img src="web/char.jpg">
+    <div id="cir"></div>
+    
+    
+    <input > <br>
+    <input disabled>
+    <label for="chk">메뉴</label>
+    <input type="checkbox" id="chk">
+    <div id="menu">
+        <ul>
+            <li>홈</li>
+            <li>회사소개</li>
+            <li>서비스소개</li>
+            <li>오시는길</li>
+        </ul>
+    </div>
+    
+    
+
+    <!--<h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>-->
+
+    <!--
+         <table border="1">
+             <tr>
+                 <th>이름</th>
+                 <th>주소</th>
+             </tr>
+             <tr>
+                 <th>한혜원</th>
+                 <th>서울시 강북구</th>
+             </tr>
+         </table>-->
+
+
+
+
+    <!--<div id="header">
+           <h1>타이틀</h1>
+           <div>
+               <h1>타이틀 2</h1>
+           </div>
+       </div >
+           
+       <div id="content">
+           <h1>타이틀3</h1>
+           <p>내용</p>
+       </div>-->
+
+    <!--<div class="text_bold">과일 리스트</div>
+       <ul>
+           <li class="select text_bold">사과</li>
+           <li>바나나</li>
+           <li class="select text_itelic">수박</li>
+           <li class="text_bold">메론</li>
+       </ul>-->
+
+
+    <!--<input type="text"> <br>
+       <input type="password"> <br>
+       <input type="button" value="버튼"> <br>
+       <input type="checkbox">-->
+
+
+    <!--<div id="header">
+            Header 영역
+        </div>
+        <div id="wrap">
+            <div id="content"> Content 영역</div>
+            <div id="aside"> Aside 영역</div>
+        </div>
+        <div id="footer"> Footer 영역</div>-->
+
+
+    <!--<h1>제목 글자 태그</h1>
+        <p> 대우조선해양을 인수한 현대중공업 현장실사단이 3일 경남 거제시 대우조선 옥포조선소에 도착해 내부 진입을 시도하기 앞서 정문을 봉쇄하고 있는 노조 측에 대화를 요청했다. 하지만 노조는 “매각 철회 조건이 없다면 실사단과 접촉하지 않겠다”며 이를 거부했다.<br>
+
+        현대중공업·산업은행 등 20여명으로 구성돼 버스 1대를 타고 온 현장실사단은 이날 오전 9시 20분쯤 옥포조선소 정문에서 수십ｍ 떨어진 곳에 도착했다.
+            
+        </p>
+        
+        <div>
+            DIV 블럭영역
+        </div>-->
+</body>
+</html>

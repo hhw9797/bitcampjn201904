@@ -1,0 +1,18 @@
+1560908310982	Move 'first.jsp' to 'WebContent'
+1560927582906	Move 'include' to 'WebContent'
+1560927660007	Move 'index.jsp' to 'include'
+1560927819964	Move 'index.jsp' to 'WEB-INF'
+1560927834872	Move 'index.jsp' to 'WebContent'
+1560929965453	Move 'blog.jsp' to 'WebContent'
+1560931181609	Delete element
+1560996683626	Copy file
+1560996688236	Copy file
+1560997482127	Move 'index.html' to 'WebContent'
+1561003985980	Move 'viwParameter.jsp' to 'request'
+1561004230040	Delete element
+1561011662835	Rename resource 'viwParameter.jsp'
+1561085300975	Rename resource 'request_form.jsp'
+1561085361292	Rename resource 'form_result.jsp'
+1561086159048	Delete element
+1561097169917	Copy file
+1561100656472	Delete element

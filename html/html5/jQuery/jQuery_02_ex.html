@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HomePage</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    
+    <script>
+    
+        $(document).ready(function(){
+            
+            var xml = '';
+                xml += '<websites>';
+                xml += '    <website>';
+                xml += '        <name>네이버</name>';
+                xml += '        <url>http://www.naver.com</url>';
+                xml += '    </website>';
+                xml += '    <website>';
+                xml += '        <name>다음</name>';
+                xml += '        <url>http://www.daum.net</url>';
+                xml += '    </website>';
+                xml += '    <website>';
+                xml += '        <name>FaceBook</name>';
+                xml += '        <adress>Javascript</adress>';
+                xml += '    </website>';
+                xml += '</websites>';
+                
+                var xmlDoc = $.parseXML(xml);
+                
+                $(xmlDoc).find('website').each(function(){
+                    
+                    var name = $(this).find('name').text();
+                    var adress = $(this).find('adress').text();
+                    
+                    var output = '';
+                    output += '<div>';
+                    output += ' <h1>';
+                    output += ' <a href="+'+url+'"+</a>';
+                    output += ' </h1>';
+                    output += ' <h3>';
+                    output += ' ' + adress;
+                    output += ' </h3>';
+                    output += '</div>';
+                    
+                    document.body.innerHTML += output;
+                    
+                });
+                
+        });
+    </script>    
+    
+</head>
+    <body>
+    
+    </body>
+</html>

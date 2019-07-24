@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>dfd</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<context-param>
+		<description>logEnabled</description>
+		<param-name>logEnabled</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>debugLevel</param-name>
+		<param-value>1</param-value>
+	</context-param>
+
+
+	<!-- 서블릿 등록 : 서블릿 이름, 클래스 이름(패키지명을 포함하는 풀네임 등록) -->
+	<servlet>
+		<servlet-name>Hello</servlet-name>
+		<servlet-class>member.HelloServlet</servlet-class>
+	</servlet>
+
+	<!-- 사용자 요청 URL 등록 -->
+	<servlet-mapping>
+		<servlet-name>Hello</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 에러페이지 지정 -->
+	<!-- http 코드로 지정 -->
+	<error-page>
+
+			<error-code>500</error-code>
+
+			<location>/0624/errorpage/viewError500.jsp</location>
+
+		</error-page>
+
+		<!-- 에러타입으로 지정 -->
+		<!-- 에러처리는 error-code보다는 exceprion-type이 우선순위로 보여진다. -->
+		<!-- 우선순위 순서 : jsp에 설정한 error-page > exception-type > error-code 순이다. -->
+
+		<error-page>
+			<exception-type>java.lang.NullPointerException</exception-type>
+			<location>/0624_error/errorpage/viewErrorNull.jsp</location>
+		</error-page>
+		
+		<!-- 자동 코드 추가 설정 -->
+		<jsp-config>
+
+			<jsp-property-group>
+				<!-- variable, footer 파일을 view 폴더에있는 파일에 코드를 추가해준다. -->
+				<url-pattern>/0624/action/view/*</url-pattern>
+
+				<include-prelude>/0624/action/common/variable.jspf</include-prelude>
+
+				<include-prelude>/0624/action/common/footer.jspf</include-prelude>
+
+			</jsp-property-group>
+
+		</jsp-config>
+
+</web-app>

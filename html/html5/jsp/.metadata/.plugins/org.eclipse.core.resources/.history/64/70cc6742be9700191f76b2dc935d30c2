@@ -1,0 +1,45 @@
+package web;
+
+public class LoginInfo {
+	
+	private String id;
+	private String name;
+	private String photo;
+	private String nicname;
+	private int grade;
+	private String pNum;
+	
+	public LoginInfo(String id) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.photo = photo;
+		this.nicname = nicname;
+		this.grade = grade;
+		this.pNum = pNum;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public String getNicname() {
+		return nicname;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public String getpNum() {
+		return pNum;
+	}

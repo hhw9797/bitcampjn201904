@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	div {
+		width: 960px;
+		margin: 0 auto;
+	}
+	
+	
+</style>
+</head>
+<body>
+<h1>request 테스트 폼</h1>
+<hr>
+<div>
+	<table>
+		<tr>
+			<td>이름</td>
+			<td><input type="text"></td>
+		</tr>
+		<tr>
+			<td>직업</td>
+			<td>
+				<select>
+					<option>무직</option>
+					<option>학생</option>
+					<option>회사원</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>관심분야</td>
+			<td>
+				<input type="checkbox">정치
+				<input type="checkbox">사회
+				<input type="checkbox">정보통신
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"></td>
+			<td>
+				<input type="submit" value="확인">
+				<input type="submit" value="취소">
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

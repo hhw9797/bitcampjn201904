@@ -1,0 +1,170 @@
+ 
+
+/*초기화*/
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            input {
+                padding: 0;
+                margin: 0;
+            }
+            
+            body {
+                font-family: 'Nanum Gothic', sans-serif;
+                background-color: darkslategray;
+            }
+            
+            /*메인블럭*/
+            #main_wrap {
+                width: 928px;
+                margin: 40px;
+                padding:20px;
+                background-color: #FFF;
+                border: 1px solid #DDD;
+                border-radius: 3px;
+                box-shadow: 0 3px 3px #DDD;
+      
+            }
+            
+            /*header*/
+            #header {
+                padding: 20px;
+            }
+            #header>h1 {
+                font-family: "Jua";
+                margin-bottom: 5px;
+            }
+            #header>h4 {
+                font-weight: normal;
+            }
+            
+            
+            /*네비게이션*/
+            #nav {
+                height: 35px;
+                border-top: 1px solid #DDD;
+                border-bottom: 1px solid #DDD;
+                
+                overflow: hidden;
+            }
+            #menu {
+                float: left;                
+            }
+            
+            
+            #search {
+                float: right;
+                height: 35px;
+                line-height: 35px;
+                vertical-align: middle;
+            }
+            #menu>ul {
+                list-style: none;
+            }
+            #menu>ul>li {
+                height: 35px;
+                
+                line-height: 35px;
+                
+                float: left;
+                
+               /* padding: 0 20px;*/
+            }
+            
+            /*메뉴 링크*/
+            #menu>ul>li>a {
+                display: block;
+                line-height: 35px;
+                text-decoration: none;
+                padding: 0 20px;
+                
+            }
+            #menu>ul>li:hover {
+                background-color: black;
+                color: aqua;
+            }
+            #menu>ul>li>a:hover {
+                background-color: black;
+                color: aqua;
+            }
+            
+            #search>input[type=text] {
+                height: 21px;
+                border-radius: 10px 0 0 10px;
+                border: 1px solid #DDD;
+                padding:0 10px;
+                
+                vertical-align: middle;
+                
+            }
+            #search>input[type=button] {
+                height: 22px;
+                margin-top: 2px; 
+                margin-left: -1px;
+                border-radius: 0 10px 10px 0;
+                border: 1px solid #DDD;
+                padding:0 10px;
+                
+                vertical-align: middle;
+                
+            }
+            
+            
+            #contents{
+                overflow: hidden;
+                padding: 5px;
+            }
+            #content {
+                float: left;
+                
+                width: 700px;
+                
+                /*background-color: aqua;*/
+            }
+            #aside {
+                float: right;
+                
+                width: 198px;
+                /*background-color: aquamarine;*/
+                
+                padding: 15px;
+            }
+            #aside>ul {
+                list-style: none;
+                margin-left: 10px;
+                margin-top: 5px;
+                margin-bottom: 30px;
+            }
+            #aside>ul>li {
+                height: 30px;
+                line-height: 25px;
+            }
+            #content>article {
+                margin: 25px 0;
+                border-bottom: 1px solid #DDD;
+            }
+            
+            #content>article>.img {
+                width: 300px;
+                margin-left: 5px;
+                margin-bottom: 15px;
+            }
+            #content>article>.date {
+                display: block;
+                padding: 0 5px;
+                margin-bottom: 15px;
+            }
+            #content>article>.title {
+                padding: 20px 5px;
+            }
+            #content>article>p {
+                padding: 5px;
+                line-height: 160%;
+                font-size: 14px;
+            }
+            #footer {
+                text-align: center;
+                clear: both;
+            }

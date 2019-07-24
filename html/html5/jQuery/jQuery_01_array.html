@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery 배열 처리</title>
+        <style>
+            
+            .title {
+                background-color: dodgerblue;
+                color: #FFF;
+                font-size: 48px;
+                text-align: center;
+                border-radius: 25px;
+                height: 50px;
+            }
+            
+        </style>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+        
+        <script>
+            
+            $(document).ready(function(){
+                
+                var arr = [];
+                arr.push({name:'NAVER', url:'http://www.naver.com'});
+                arr.push({name:'DAUM', url:'http://www.daum.net'});
+                arr.push({name:'FACEBOOK', url:'http://www.facebook.com'});
+                
+                var nHtml = '';
+                
+                // $.each(배열원본, 처리(핸들러) 함수)
+                // 1. NAVER 2. DAUM 3. FACEBOOK
+                $.each(arr, function(index, item){
+                    nHtml += '<a href="'
+                             +item.url
+                             +'">'
+                             +index
+                             +'. '
+                             +item.name
+                             +'</a>';
+                });
+                
+                //document.body.innerHTML = nHtml;
+                
+                // $('h1').css('background-color', 'yellow');
+                
+                $('h1').each(function(index, item){
+                    
+                    item.innerHTML += '['+index+']' // 반복하면서 원래 갖고 있던 요소에 index 추가
+                    
+                    //var v = $(item).html();
+                    //alert(v);
+                    
+                    //$(item).html($(item).html() + '[' + index + ']'); // get 먼저 실행 후 set
+                    
+                    var insertHtml = '';
+                    insertHtml += '<a href="'+arr[index].url+'">';
+                    insertHtml += arr[index].name;
+                    insertHtml += '</a>';
+                    
+                    $(item).html(insertHtml);
+                    
+                    if(index%2 == 0){
+                        $(item).addClass('title');
+                    }
+                    
+                });
+                
+                
+                
+                
+            });
+            
+            
+        </script>
+        
+    </head>
+    <body>
+        
+        <h1>H1 - 0</h1>
+        <h1>H1 - 1</h1>
+        <h1>H1 - 2</h1>
+        
+    </body>
+</html>

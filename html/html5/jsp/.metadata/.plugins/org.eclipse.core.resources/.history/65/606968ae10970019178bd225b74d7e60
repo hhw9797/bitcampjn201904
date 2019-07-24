@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+
+<input type="button" id="viewCookie">
+<div id="view">
+	
+</div>
+
+<script>
+	
+	$(document).ready(function(){
+		
+		var name = 'name';
+		
+		$('#viewCookie').click(function(){
+			var value = document.cookie.match('(^|;)?' + name + '=([^;]*)(;|$)');
+			value = value?value[2]:null;
+			alert(value);
+			$('#view').html('name=' + value);
+		})
+		
+	});
+	
+</script>
+
+</body>
+</html>

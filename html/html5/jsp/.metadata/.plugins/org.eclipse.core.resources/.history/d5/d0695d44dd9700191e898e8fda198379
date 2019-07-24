@@ -1,0 +1,5 @@
+package member.copy;
+
+public class LoginInfo {
+
+}

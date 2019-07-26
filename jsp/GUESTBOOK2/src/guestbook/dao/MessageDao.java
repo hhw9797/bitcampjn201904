@@ -27,7 +27,7 @@ public class MessageDao {
 		PreparedStatement pstmt = null;
 
 		String sql = "INSERT INTO GUESTBOOK_MESSAGE " + " (MESSAGE_ID, GUEST_NAME, PASSWORD, MESSAGE) "
-				+ " values (GM_MID_SEQ.nextval,?,?,?)";
+				+ " values (GM_MID_SEG.nextval,?,?,?)";
 
 		try {
 			pstmt = conn.prepareStatement(sql);

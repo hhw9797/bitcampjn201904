@@ -15,6 +15,8 @@
 	String uploadPath = "/upload";
 	String dir = request.getSession().getServletContext().getRealPath(uploadPath);
 
+	
+	
 	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
 	DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -52,7 +54,6 @@
 				item.write(new File(dir, saveFileName));
 			}
 		}
-
 	}
 %>
 <!DOCTYPE html>

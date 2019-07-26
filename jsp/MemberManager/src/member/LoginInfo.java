@@ -39,9 +39,7 @@ public class LoginInfo {
 		return "LoginInfo [uId=" + uId + ", uName=" + uName + ", uPhoto=" + uPhoto + regDate + "]";
 	}
 	
-	
-	
-	
+
 	
 
 }

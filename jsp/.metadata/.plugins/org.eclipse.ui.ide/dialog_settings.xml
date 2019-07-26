@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\HAN\bitcampjn201904\jsp\MemberManagerMVC"/>
+		<item value="C:\HAN\bitcampjn201904\jsp\FirstWeb"/>
+		<item value="C:\HAN\bitcampjn201904\jsp\MemberManager"/>
+		<item value="C:\HAN\bitcampjn201904\jsp\GUESTBOOK"/>
+		<item value="C:\HAN\bitcampjn201904\jsp\Servers"/>
+		<item value="C:\HAN\bitcampjn201904\jsp\GUESTBOOK2"/>
 		<item value="C:\한혜원\hw_github\bitcampjn201904\jsp\sh_01"/>
 		<item value="C:\한혜원\hw_github\bitcampjn201904\jsp"/>
 	</list>
@@ -31,5 +37,12 @@
 	<section name="ChooseWorkspaceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="606"/>
 		<item key="DIALOG_Y_ORIGIN" value="275"/>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="626"/>
+		<item key="DIALOG_Y_ORIGIN" value="111"/>
+		<item key="DIALOG_WIDTH" value="525"/>
+		<item key="DIALOG_HEIGHT" value="579"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>

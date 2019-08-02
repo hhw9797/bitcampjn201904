@@ -23,7 +23,7 @@ public class LoginController {
 		return "member/loginForm";
 		// 	/WEB-INF/views/member/loginForm.jsp
 	}
-	
+	@RequestMapping( value = "/member/loginProcess", method = RequestMethod.POST)
 	public ModelAndView loginProcess(HttpServletRequest request) {
 		
 		String id = request.getParameter("uId");
@@ -37,7 +37,6 @@ public class LoginController {
 		modelAndView.setViewName("member/login");
 		modelAndView.addObject("id", id);
 		modelAndView.addObject("pw", pw);
-		
 		
 		return modelAndView;
 	}

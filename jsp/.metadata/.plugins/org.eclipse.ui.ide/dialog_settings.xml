@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\HAN\hhw_git\bitcampjn201904\jsp\GUESTBOOK2"/>
 		<item value="C:\HAN\hhw_git\bitcampjn201904\jsp\MemberManagerMVC"/>
 		<item value="C:\HAN\hhw_git\bitcampjn201904\jsp\GUESTBOOK"/>
 		<item value="C:\HAN\bitcampjn201904\jsp\MemberManagerMVC"/>

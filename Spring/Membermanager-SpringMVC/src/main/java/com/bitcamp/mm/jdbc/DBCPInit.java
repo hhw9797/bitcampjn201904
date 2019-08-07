@@ -39,7 +39,7 @@ public class DBCPInit extends HttpServlet {
 	private void initConnectionPool() {
 
 		try {
-
+								
 			String jdbcDriver = "jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
 			String username = "bit";
 			String pw = "bit";

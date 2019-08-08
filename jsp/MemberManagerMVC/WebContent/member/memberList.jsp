@@ -81,7 +81,7 @@
 			<td><%= ++cnt %></td>
 			<td><%= member.getuId() %></td>
 			<td><%= member.getuName() %></td>
-			<td><%= member.getuPW() %></td>
+			<td><%= member.getuPw() %></td>
 			<td><img class="sumnail" alt="회원 사진" src="../images/<%= member.getuPhoto()%>"> </td>
 			<td><a href="#">수정</a> | <a href="#">삭제</a> </td>
 		</tr>

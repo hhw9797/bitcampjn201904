@@ -52,54 +52,60 @@
 
 <!-- 컨텐츠 시작 -->
 <div id="contents">
-   <h3>회원 리스트</h3>
-   <hr>
-   <div class="searchBox">
-   
-      <form>
-         검색<br>
-         <select name="stype">
-            <option value="both">아이디+이름</option>
-            <option value="id">아이디</option>
-            <option value="name">이름</option>
-         </select>
-         <input type="text" name="keyword"> <input type="submit" value="검색">
-      </form>
-   
-   </div>
-   <table>
-      <tr>
-         <td>no</td>
-         <td>아이디</td>
-         <td>비밀번호</td>
-         <td>이름</td>
-         <td>사진</td>
-         <td>가입일</td>
-      </tr>
-      
-      <c:forEach items="${viewData.memberList}" var="memberInfo" varStatus="stat" >
-      <tr>
-         <td><%-- ${memberInfo.idx} / ${stat.index} / ${stat.count} / ${viewData.totalCount} /  --%>${viewData.no-stat.index}</td>
-         <td>${memberInfo.uId}</td>
-         <td>${memberInfo.uPw}</td>
-         <td>${memberInfo.uName}</td>
-         <td><img src="<c:url value='/uploadfile/userphoto/${memberInfo.uPhoto}'/>" height="30">  </td>
-         <td>
-            <fmt:formatDate value="${memberInfo.regDate}" pattern="yyyy.MM.dd"/>
-         </td>
-      </tr>
-      </c:forEach>
-      
-   </table>
-   <c:if test="${viewData.totalCount>0}">
-   <div id="pagingBox">
-      <c:forEach begin="1" end="${viewData.pageTotalCount}" var="num">
-         <%-- <div><a href="memberList?p=${num}" style="text-decoration: none;color: black;"><span id="num">${num}</span></a></div> --%>
-         <div><a href="memberList?p=${num}&stype=${param.stype}&keyword=${param.keyword}" style="text-decoration: none;color: black;">${num}</a> </div>   
-      </c:forEach>
-   </div>
-   </c:if>
-   
+	<h3>회원 리스트</h3>
+	<hr>
+	<div class="searchBox">
+	
+		<form>
+			검색<br>
+			<select name="stype">
+				<option value="both">아이디+이름</option>
+				<option value="id">아이디</option>
+				<option value="name">이름</option>
+			</select>
+			<input type="text" name="keyword"> <input type="submit" value="검색">
+		</form>
+		
+	</div>
+	<table>
+		<tr>
+			<td>no</td>
+			<td>아이디</td>
+			<td>비밀번호</td>
+			<td>이름</td>
+			<td>사진</td>
+			<td>가입일</td>
+			<td>관리</td>
+		</tr>
+		
+		<c:forEach items="${viewData.memberList}" var="memberInfo" varStatus="stat" >
+		<tr>
+			<td><%-- ${memberInfo.idx} / ${stat.index} / ${stat.count} / ${viewData.totalCount} /  --%>${viewData.no-stat.index}</td>
+			<td>${memberInfo.uId}</td>
+			<td>${memberInfo.uPw}</td>
+			<td>${memberInfo.uName}</td>
+			<td><img src="<c:url value='/uploadfile/userphoto/${memberInfo.uPhoto}'/>" height="30">  </td>
+			<td>
+				<fmt:formatDate value="${memberInfo.regDate}" pattern="yyyy.MM.dd"/>
+			</td>
+			<td>	
+				<a href="memberEdit?memberId=${memberInfo.idx}">수정</a> 
+				<a href="#" onclick="delMember(${memberInfo.idx})">삭제</a>
+			</td>
+		</tr>
+		</c:forEach>
+		
+	</table>
+	<c:if test="${viewData.totalCount>0}">
+	<div id="pagingBox">
+		<c:forEach begin="1" end="${viewData.pageTotalCount}" var="num">
+			<%-- <div><a href="memberList?p=${num}">${num}</a> </div> --%>
+			<div><a href="memberList?p=${num}&stype=${param.stype}&keyword=${param.keyword}">${num}</a> </div> 
+		</c:forEach>
+		
+	</div>
+	</c:if>
+	
 </div>
 <!-- 컨텐츠 끝 -->
 
@@ -110,7 +116,17 @@
 
 
 
+<script>
 
+	function delMember(idx) {
+		
+		if(confirm("삭제하시겠습니까?")){
+			location.href = 'memberDelete?memberId='+idx;
+		}
+		
+	}
+
+</script>
 
 
 

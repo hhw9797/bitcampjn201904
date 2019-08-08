@@ -21,7 +21,7 @@
 	// 1. 사용자가 입력한 id로 회원 정보 검색
 	MemberInfo memberInfo = (MemberInfo)application.getAttribute(userId);
 		
-	if(memberInfo != null && memberInfo.getuPW().equals(userPW)){
+	if(memberInfo != null && memberInfo.getuPw().equals(userPW)){
 		// 회원 정보가 존재 && 빌번호가 일치
 		// 세션에 회원 로그인 정보를 저장
 		session.setAttribute("loginInfo", memberInfo.toLoginInfo());

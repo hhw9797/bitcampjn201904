@@ -7,31 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
-import com.bitcamp.mm.member.dao.MemberDao;
+import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 
 @Service("deleteService")
-public class MemberDeleteService implements MemberService{
+public class MemberDeleteService implements MemberService {
 
 	@Autowired
-	private MemberDao dao;
-	
+	private MemberJdbcTemplateDao dao;
+
 	public int memberDelete(int id) { // idx 값
-		
+
 		int rCnt = 0;
-		
-		Connection conn = null;
-		
-		try {
-			conn = ConnectionProvider.getConnection();
-			
-			rCnt = dao.memberDelete(conn, id);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+		rCnt = dao.memberDelete(id);
+
 		return rCnt;
 	}
-	
+
 }

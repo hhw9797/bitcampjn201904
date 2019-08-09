@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
+import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 import com.bitcamp.mm.member.domain.ListViewData;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.SearchParam;
@@ -16,8 +17,11 @@ import com.bitcamp.mm.member.domain.SearchParam;
 @Service("listService")
 public class MemberListService implements MemberService {
 
+	//@Autowired
+	//private MemberDao dao;
+	
 	@Autowired
-	private MemberDao dao;
+	private MemberJdbcTemplateDao dao;
 
 	final int MEMBER_CNT_LIST = 3;
 
@@ -25,16 +29,11 @@ public class MemberListService implements MemberService {
 
 		ListViewData listData = new ListViewData();
 
-		Connection conn = null;
-
-		try {
-			conn = ConnectionProvider.getConnection();
-
 			// 현재 페이지 번호
 			listData.setCurrentPageNumber(currentPageNumber);
 
 			// 전체 게시물의 개수
-			int totalCnt = dao.selectTotalCount(conn, searchParam);
+			int totalCnt = dao.selectTotalCount(searchParam);
 
 			int totalPageCnt = 0;
 			// 전체 페이지 개수
@@ -49,6 +48,7 @@ public class MemberListService implements MemberService {
 			// 구간 검색을 위한 index
 			// 1->0, 2->3, 3->6, 4->9
 			int index = (currentPageNumber - 1) * MEMBER_CNT_LIST;
+			
 			// 회원 정보 리스트
 			List<MemberInfo> memberList = null;
 
@@ -57,30 +57,16 @@ public class MemberListService implements MemberService {
 			// 3. name 으로 검색 : where like uName '%?%'
 			// 4. id 또는 name : where like uName '%?%' or like uId '%?%'
 
-			if (searchParam != null) {
-				switch (searchParam.getStype()) {
-				case "both":
-					memberList = dao.selectListByBoth(conn, index, MEMBER_CNT_LIST, searchParam);
-					break;
-				case "id":
-					memberList = dao.selectListById(conn, index, MEMBER_CNT_LIST, searchParam);
-					break;
-				case "name":
-					memberList = dao.selectListByName(conn, index, MEMBER_CNT_LIST, searchParam);
-					break;
-				}
-			} else {
-				memberList = dao.selectList(conn, index, MEMBER_CNT_LIST);
-			}
+			
 			
 			if(searchParam == null) {
-				memberList = dao.selectList(conn, index, MEMBER_CNT_LIST);
+				memberList = dao.selectList(index, MEMBER_CNT_LIST);
 			} else if(searchParam.getStype().equals("both")) {
-				memberList = dao.selectListByBoth(conn, index, MEMBER_CNT_LIST, searchParam);
+				memberList = dao.selectListByBoth(index, MEMBER_CNT_LIST, searchParam);
 			} else if(searchParam.getStype().equals("id")) {
-				memberList = dao.selectListById(conn, index, MEMBER_CNT_LIST, searchParam);
+				memberList = dao.selectListById(index, MEMBER_CNT_LIST, searchParam);
 			} else if(searchParam.getStype().equals("name")) {
-				memberList = dao.selectListByName(conn, index, MEMBER_CNT_LIST, searchParam);
+				memberList = dao.selectListByName(index, MEMBER_CNT_LIST, searchParam);
 			}
 
 			listData.setMemberList(memberList);
@@ -90,11 +76,6 @@ public class MemberListService implements MemberService {
 			listData.setNo(no);
 
 			listData.setTotalCount(totalCnt);
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		return listData;
 

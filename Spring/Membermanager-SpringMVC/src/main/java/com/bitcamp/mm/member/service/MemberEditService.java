@@ -12,30 +12,22 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.mm.jdbc.ConnectionProvider;
 import com.bitcamp.mm.member.dao.MemberDao;
+import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberEdit;
 
 @Service("editService")
 public class MemberEditService implements MemberService {
 
+	//@Autowired
+	//private MemberDao dao;	
+	
 	@Autowired
-	private MemberDao dao;	
+	private MemberJdbcTemplateDao dao;
 	
 	public MemberInfo getEditFormData(int id) {
 		
-		Connection conn = null;
-		MemberInfo memberInfo = null;
-		
-		try {
-			conn= ConnectionProvider.getConnection();
-			memberInfo = dao.selectMemberByIdx(conn, id);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println("service : " + memberInfo);
-		
+		MemberInfo memberInfo = dao.selectMemberByIdx(id);		
 
 		return memberInfo;
 	}
@@ -46,10 +38,7 @@ public class MemberEditService implements MemberService {
 		MemberInfo memberInfo = edit.toMemberInfo();
 		
 		String path = "/uploadfile/userphoto";
-		String dir = request.getSession().getServletContext().getRealPath(path);
-		
-		Connection conn = null;
-		
+		String dir = request.getSession().getServletContext().getRealPath(path);		
 		
 		// 신규 파일 체크
 		if(edit.getuPhoto() != null && !edit.getuPhoto().isEmpty() && edit.getuPhoto().getSize()>0) {
@@ -75,16 +64,9 @@ public class MemberEditService implements MemberService {
 		} else {
 			// 신규파일이 없으면 이전 파일 이름을 그대로 업데이트
 			memberInfo.setuPhoto(oldFileName);
-		}
+		}		
 		
-		try {
-			conn = ConnectionProvider.getConnection();
-			rCnt = dao.memberUpdate(conn, memberInfo);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			rCnt = dao.memberUpdate(memberInfo);
 		
 		return rCnt;
 	}

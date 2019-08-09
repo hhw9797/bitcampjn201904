@@ -49,6 +49,12 @@ public class ListViewData {
 	public void setPageTotalCount(int pageTotalCount) {
 		this.pageTotalCount = pageTotalCount;
 	}
+
+	@Override
+	public String toString() {
+		return "ListViewData [memberList=" + memberList + ", totalCount=" + totalCount + ", no=" + no
+				+ ", currentPageNumber=" + currentPageNumber + ", pageTotalCount=" + pageTotalCount + "]";
+	}
 	
 	
 	

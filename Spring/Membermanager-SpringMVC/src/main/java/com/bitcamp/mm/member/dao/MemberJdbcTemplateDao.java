@@ -25,6 +25,7 @@ public class MemberJdbcTemplateDao {
 	@Autowired
 	JdbcTemplate template;
 
+	// 회원 로그인
 	public MemberInfo selectMemberById(String userId) {
 
 		String sql = "select * from member where uid=?";
@@ -35,6 +36,7 @@ public class MemberJdbcTemplateDao {
 
 	}
 
+	// 아이디 중복 체크
 	public MemberInfo selectMemberById2(String userId) {
 
 		String sql = "select * from member where uid=?";
@@ -51,6 +53,7 @@ public class MemberJdbcTemplateDao {
 
 	}
 
+	// 회원가입
 	public int insertMember(MemberInfo memberInfo) {
 
 		String sql = "insert into member " + " (uid, uname, upw, uphoto) " + " values (?,?,?,?) ";

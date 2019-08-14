@@ -1,9 +1,11 @@
+
 package com.bitcamp.mm.member.domain;
 
 public class SearchParam {
-
+	
 	private String stype;
 	private String keyword;
+	
 	
 	public String getStype() {
 		return stype;
@@ -17,12 +19,13 @@ public class SearchParam {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	
 	@Override
 	public String toString() {
-		return "SearchParam [sType=" + stype + ", keyword=" + keyword + "]";
+		return "SearchParam [stype=" + stype + ", keyword=" + keyword + "]";
 	}
 	
 	
 	
+	
+
 }

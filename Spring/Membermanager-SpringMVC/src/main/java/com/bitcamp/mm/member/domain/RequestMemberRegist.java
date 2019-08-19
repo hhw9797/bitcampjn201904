@@ -36,7 +36,7 @@ public class RequestMemberRegist {
 	
 	@Override
 	public String toString() {
-		return "RequestMemberRegist [uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uPhoto=" + uPhoto.getOriginalFilename() + "]";
+		return "RequestMemberRegist [uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + "]";
 	}
 	
 	public MemberInfo toMemberInfo() {

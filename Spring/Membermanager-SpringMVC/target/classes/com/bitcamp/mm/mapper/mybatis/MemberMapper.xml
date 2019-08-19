@@ -11,11 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap id="resultMemberInfo"
 		type="com.bitcamp.mm.member.domain.MemberInfo">
 		<id property="idx" column="idx" />
-		<result property="uId" column="uid" />
-		<result property="uPw" column="upw" />
-		<result property="uName" column="uname" />
-		<result property="uPhoto" column="uphoto" />
-		<result property="regDate" column="date" />
+		<result property="uId" column="uId" />
+		<result property="uPw" column="uPw" />
+		<result property="uName" column="uName" />
+		<result property="uPhoto" column="uPhoto" />
+		<result property="regDate" column="regDate" />
 	</resultMap>
 
 	<!-- 회원로그인 -->

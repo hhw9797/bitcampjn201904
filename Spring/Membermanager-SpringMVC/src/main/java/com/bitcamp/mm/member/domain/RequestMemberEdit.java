@@ -6,7 +6,7 @@ public class RequestMemberEdit {
 
 	private int idx;
 	private String uId;
-	private String uPW;
+	private String uPw;
 	private String uName;
 	private MultipartFile uPhoto;
 	private String oldFile;
@@ -27,12 +27,12 @@ public class RequestMemberEdit {
 		this.uId = uId;
 	}
 
-	public String getuPW() {
-		return uPW;
+	public String getuPw() {
+		return uPw;
 	}
 
-	public void setuPW(String uPW) {
-		this.uPW = uPW;
+	public void setuPW(String uPw) {
+		this.uPw = uPw;
 	}
 
 	public String getuName() {
@@ -58,8 +58,11 @@ public class RequestMemberEdit {
 	public void setOldFile(String oldFile) {
 		this.oldFile = oldFile;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "RequestMemberEdit [idx=" + idx + ", uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + "]";
+	}
 
 	public MemberInfo toMemberInfo() {
 
@@ -67,7 +70,7 @@ public class RequestMemberEdit {
 		info.setIdx(idx);
 		info.setuId(uId);
 		info.setuName(uName);
-		info.setuPw(uPW);
+		info.setuPw(uPw);
 
 		return info;
 

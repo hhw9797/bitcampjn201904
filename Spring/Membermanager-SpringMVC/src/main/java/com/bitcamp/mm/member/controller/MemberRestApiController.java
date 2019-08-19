@@ -41,7 +41,7 @@ public class MemberRestApiController {
 	private MemberDeleteService deleteService;
 	
 	@CrossOrigin // 따로 추가설정 하지 않으면 모든 도메인에서 에러가 발생하지 않음.
-	@RequestMapping(method = RequestMethod.GET) // 전체리스트 들어가기떄문에 기본매핑 그대로 사용. value 추가하지 않음.
+	@RequestMapping(method = RequestMethod.GET) // 전체리스트 들어가기때문에 기본매핑 그대로 사용. value 추가하지 않음.
 	@ResponseBody
 	public List<MemberInfo> getAllList(){
 		
@@ -59,7 +59,7 @@ public class MemberRestApiController {
 		//System.out.println(regRequest);
 		int result = regService.memberInsert(request, regRequest);
 		
-		return result>0?"success":"fail";
+		return result>0 ? "success":"fail";
 	}
 	
 	@CrossOrigin

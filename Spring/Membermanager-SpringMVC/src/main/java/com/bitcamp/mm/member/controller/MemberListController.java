@@ -51,7 +51,7 @@ public class MemberListController {
 	
 	
 
-	   @RequestMapping("/member/memberListJson")
+	   @RequestMapping("/member/json/memberListJson")
 	   public @ResponseBody ListViewData memberListJson(
 	         @RequestParam(value = "p", defaultValue = "1") int pageNumber,
 	         @RequestParam(value = "stype", required = false) String stype,
@@ -83,7 +83,7 @@ public class MemberListController {
 	   
 	   // 반환 타입이 ResponseEntity<T> : Spring 4.2 버전 이상일 때 사용가능
 	   // 반환 하고자하는 Body, statusCode, HttpHeader
-	   @RequestMapping("/member/memberListJson2")
+	   @RequestMapping("/member/json/memberListJson2")
 	   @ResponseBody
 	   public ResponseEntity<ListViewData> memberListJson2(
 	         @RequestParam(value = "p", defaultValue = "1") int pageNumber,

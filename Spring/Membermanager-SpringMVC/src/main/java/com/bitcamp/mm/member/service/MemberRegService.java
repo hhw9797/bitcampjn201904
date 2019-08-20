@@ -30,6 +30,9 @@ public class MemberRegService implements MemberService {
 
 	// 자동 메퍼를 이용해서 생성할 dao
 	private MemberDaoInterface dao;
+	
+	@Autowired
+	private MailSenderService mailService; 
 
 	// 자동 메퍼를 위한 sqlSessionTemplate 객체 주입
 	// @Inject : 타입에 맞는 주입 ( java 에서 지원 : 특정 프레임워크에 의존하지 않음 )
@@ -66,6 +69,9 @@ public class MemberRegService implements MemberService {
 				memberInfo.setuPhoto(newFileName);
 			}
 			resultCnt = dao.insertMember(memberInfo);
+			
+			// 메일 발송
+			mailService.send(memberInfo.getuId());
 
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block

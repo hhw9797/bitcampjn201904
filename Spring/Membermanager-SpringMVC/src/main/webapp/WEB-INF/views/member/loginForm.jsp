@@ -38,7 +38,11 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="로그인"> </td>
+				<td><input type="submit" value="로그인">
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">아이디 </a><a href="#">/ 비밀번호 찾기</a></td></td>
 			</tr>
 		</table>
 	</form>

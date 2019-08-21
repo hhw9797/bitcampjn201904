@@ -1,4 +1,4 @@
-package com.bitcamp.mm.member.interceptor;
+package com.bitcamp.mm.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

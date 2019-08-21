@@ -2,8 +2,6 @@ package com.bitcamp.mm.member.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +10,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.mm.jdbc.ConnectionProvider;
-import com.bitcamp.mm.member.dao.MemberDao;
 import com.bitcamp.mm.member.dao.MemberDaoInterface;
-import com.bitcamp.mm.member.dao.MemberJdbcTemplateDao;
 import com.bitcamp.mm.member.domain.MemberInfo;
 import com.bitcamp.mm.member.domain.RequestMemberRegist;
 
@@ -51,6 +46,8 @@ public class MemberRegService implements MemberService {
 
 		MemberInfo memberInfo = regist.toMemberInfo();
 
+		System.out.println(memberInfo);
+		
 		int resultCnt = 0;
 
 		String newFileName = "";
@@ -71,7 +68,7 @@ public class MemberRegService implements MemberService {
 			resultCnt = dao.insertMember(memberInfo);
 			
 			// 메일 발송
-			mailService.send(memberInfo.getuId());
+			mailService.send(memberInfo.getuId(), memberInfo.getCode());
 
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block

@@ -83,7 +83,7 @@
 					type : 'get',
 					data : {id : $(this).val()},
 					success : function(data) {
-						alert(data);
+						//alert(data);
 
 						$('#idcheckmsg').html('');
 						$('#idcheckmsg').removeClass('color_red');

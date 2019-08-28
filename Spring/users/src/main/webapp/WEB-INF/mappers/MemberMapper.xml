@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- interface의 full name을 namespace의 속성으로 사용 : 필수 -->
+<mapper namespace="com.project.users.dao.MemberDaoInterface">
+
+	<!-- select 결과 메핑을 위한 resultMap 설정 -->
+	<resultMap id="resultMemberInfo"
+		type="com.project.users.domain.MemberInfo">
+		<id property="idx" column="idx" />
+		<result property="uId" column="uId" />
+		<result property="uPw" column="uPw" />
+		<result property="uName" column="uName" />
+		<result property="uPhoto" column="uPhoto" />
+		<result property="regDate" column="regDate" />
+		<result property="verify" column="verify" />
+		<result property="code" column="code" />
+	</resultMap>
+
+	<!-- id 체크 -->
+	<select id="selectMemberById" resultMap="resultMemberInfo">
+		select * from project.users
+		where uId=#{uId}
+	</select>
+	
+	<!-- 회원로그인 -->
+	<select id="selectMemberLogin" resultMap="resultMemberInfo">
+		select * from project.users
+		where uId=#{uId} and uPw=#{uPw}
+	</select>
+
+	<!-- 아이디 중복체크 -->
+	<select id="selectMemberById2" resultMap="resultMemberInfo">
+		select * from project.users
+		where uId=#{uId}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="insertMember"
+		parameterType="com.project.users.domain.MemberInfo">
+		insert into project.users (uId, uName, uPw, uPhoto, code) values
+		(#{uId},#{uName},#{uPw},#{uPhoto}, #{code})
+	</insert>
+
+	<!-- 회원 정보 수정을 위한 정보 획득 -->
+	<select id="selectMemberByIdx" resultMap="resultMemberInfo">
+		select * from project.users
+		where idx=#{idx}
+	</select>
+
+	<!-- 회원정보수정 -->
+	<update id="memberUpdate"
+		parameterType="com.project.users.domain.MemberInfo">
+		update project.users set uName=#{uName}, uPw=#{uPw}, uPhoto=#{uPhoto} 
+		where idx=#{idx}
+	</update>
+
+	<!-- 회원정보 삭제 -->
+	<delete id="memberDelete">
+		delete from project.users where idx=#{idx}
+	</delete>
+
+	<!-- 회원 리스트의 개수 : 검색을 위해 동적쿼리 적용 -->
+	<select id="selectTotalCount"
+		parameterType="com.project.users.domain.SearchParam"
+		resultType="int">
+		select count(*) from project.users
+
+		<where>
+
+			<if test="stype != null">
+				<if test="stype == 'both'">
+					uId LIKE CONCAT('%', #{keyword}, '%') or uName LIKE
+					CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'id'">
+					uId LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+				<if test="stype == 'name'">
+					uName LIKE CONCAT('%', #{keyword}, '%')
+				</if>
+
+			</if>
+
+		</where>
+
+	</select>
+
+	<!-- 회원 리스트 : 검색을 위해 동적쿼리 적용 -->
+	<select id="selectList" parameterType="map"
+		resultMap="resultMemberInfo">
+		SELECT * FROM project.users
+		<where>
+			<if test="search != null">
+				<if test="search.stype == 'both'">
+					<include refid="whereId"/>
+					<include refid="whereName"/>
+					<!-- uId LIKE CONCAT('%', #{search.keyword}, '%') or uName LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+				<if test="search.stype == 'id'">				
+					<include refid="whereId"/>
+					<!-- uId LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+				<if test="search.stype == 'name'">
+					<include refid="whereName"/>
+					<!-- uName LIKE CONCAT('%', #{search.keyword}, '%') -->
+				</if>
+			</if>
+		</where>
+		<!-- limit #{param1}, #{param2} -->
+		limit #{index}, #{count}
+	</select>
+		
+	<sql id="whereId">
+		or uId LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+		
+	<sql id="whereName">
+		or uName LIKE CONCAT('%', #{search.keyword}, '%')
+	</sql>
+	
+	<!-- 전체 회원 리스트 구하기 -->
+	<select id="selectAllList" resultMap="resultMemberInfo">
+		select * from project.users order by uName
+	</select>
+
+	<update id="verify">
+		update project.users set verify='Y'
+		where uId=#{param1} and code=#{param2}
+	</update>
+
+</mapper>

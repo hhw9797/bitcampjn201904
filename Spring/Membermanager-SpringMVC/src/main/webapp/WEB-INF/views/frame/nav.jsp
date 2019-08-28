@@ -10,7 +10,7 @@
 			</c:if>
 			
 			<c:if test="${loginInfo ne null}">
-			<a href="<c:url value='/member/loout' />"LOGOUT></a>
+			<a href="<c:url value='/member/logout' />">LOGOUT</a>
 			</c:if>
 		</li>
 		<li></li>
@@ -21,6 +21,7 @@
 		<li><a href="<c:url value='/member/json/memberListJson2' />">회원리스트JSON2</a></li>
 		<li><a href="<c:url value='/member/logout.do' />">LOGOUT</a></li>
 	</ul>
+	
 	<%-- <ul>
 		<li><a href="${pageContext.request.contextPath}">홈</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/login.jsp">로그인 </a></li>
@@ -29,4 +30,5 @@
 		<li><a href="${pageContext.request.contextPath}/member/memberList.jsp">회원리스트</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/logout.jsp">LOGOUT</a></li>
 	</ul> --%>
+	
 </div>

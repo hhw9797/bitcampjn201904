@@ -34,7 +34,7 @@
         $('#form').submit(function(){
                  
             $.ajax({
-                url : 'http://localhost:8080/mm/rest-api/members',
+                url : 'http://localhost:8080/users/members',
                 type : 'POST',
                 data : JSON.stringify({
                     uId : $('#uId').val(),

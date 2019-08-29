@@ -86,17 +86,7 @@ public class MemberRegService implements MemberService {
 		return resultCnt;
 	}
 
-	public char idCheck(String id) {
-
-		// SqlSessionTemplate getMapper 를 이용해 dao 생성
-		dao = template.getMapper(MemberDaoInterface.class);
-
-		char chk = dao.selectMemberById(id) == null ? 'Y' : 'N';
-
-		return chk;
-	}
-
-	public String idCheck1(String id) {
+	public String idCheck(String id) {
 
 		// SqlSessionTemplate getMapper 를 이용해 dao 생성
 		dao = template.getMapper(MemberDaoInterface.class);

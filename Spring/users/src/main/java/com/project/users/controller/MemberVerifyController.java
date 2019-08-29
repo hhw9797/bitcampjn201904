@@ -27,7 +27,6 @@ public class MemberVerifyController {
 		return "member/verify"+verifyResult;		
 	}
 	
-
 	// 메일 재 발송 요청 
 	@ResponseBody
 	@RequestMapping("/member/verify/reMailSend")

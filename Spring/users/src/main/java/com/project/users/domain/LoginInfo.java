@@ -4,16 +4,17 @@ import java.util.Date;
 
 public class LoginInfo {
 	
+	private int idx;
 	private String uId;
 	private String uName;
-	private String uPhoto;
 	private Date regDate;
-	
-	public LoginInfo(String uId, String uName, String uPhoto, Date regDate) {	
-		this.uId = uId;
-		this.uName = uName;
-		this.uPhoto = uPhoto;
-		this.regDate = regDate;
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 
 	public String getuId() {
@@ -24,9 +25,6 @@ public class LoginInfo {
 		return uName;
 	}
 
-	public String getuPhoto() {
-		return uPhoto;
-	}
 	
 	public Date getRegDate() {
 		return regDate;
@@ -34,14 +32,11 @@ public class LoginInfo {
 
 	@Override
 	public String toString() {
-		return "LoginInfo [uId=" + uId + ", uName=" + uName + ", uPhoto=" + uPhoto + ", regDate=" + regDate + "]";
+		return "LoginInfo [idx=" + idx + ", uId=" + uId + ", uName=" + uName + 
+				", regDate=" + regDate + "]";
 	}
 
-	
-	
-	
-	
-	
+
 	
 
 }

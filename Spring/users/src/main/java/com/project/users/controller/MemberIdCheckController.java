@@ -14,13 +14,13 @@ public class MemberIdCheckController {
 	@Autowired
 	private MemberRegService regService;
 	
-	@RequestMapping("/member/idCheck2")
+	@RequestMapping("/member/idCheck")
 	@ResponseBody
 	public String idCheck2(
 			@RequestParam("id") String id
 			) {
 		
-		return regService.idCheck1(id) ;
+		return regService.idCheck(id) ;
 	}
 	
 }

@@ -3,16 +3,13 @@ package com.project.users.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.project.users.domain.LoginInfo;
 import com.project.users.domain.MemberInfo;
 import com.project.users.domain.SearchParam;
 
-
-
 public interface MemberDaoInterface {
 	
-	// 로그인
-	public MemberInfo selectMemberLogin(String userId, String userPw);
-	// 아이디체크
+	// 회원 로그인처리시
 	public MemberInfo selectMemberById(String userId);
 	// 아이디 중복 체크
 	public MemberInfo selectMemberById2(String userId);
@@ -20,6 +17,7 @@ public interface MemberDaoInterface {
 	public int insertMember(MemberInfo memberInfo);
 	// 회원 정보 수정을 위한 정보 획득
 	public MemberInfo selectMemberByIdx(int id);
+	
 	// 회원 정보 수정
 	public int memberUpdate(MemberInfo memberInfo);
 	// 회원 정보 삭제
@@ -34,6 +32,7 @@ public interface MemberDaoInterface {
 	// 회원의 전체 리스트
 	public List<MemberInfo> selectAllList();
 	// 회원 이메일 인증 처리
-	public int verify(String id, String code);
-
+	public int verify(String id);
+	
+	public LoginInfo loginInfo(String id, String pw);
 }

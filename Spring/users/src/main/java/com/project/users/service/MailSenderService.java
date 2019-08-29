@@ -7,9 +7,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import com.project.users.dao.MemberDaoInterface;
+import com.project.users.domain.MemberInfo;
 
 @Service("mailSenderService")
 public class MailSenderService {
@@ -17,34 +22,41 @@ public class MailSenderService {
 	@Autowired
 	private JavaMailSender sender;
 
-	public int send(String email) {
+	@Autowired
+	private SqlSessionTemplate template;
+	private MemberDaoInterface dao;
 
-		MimeMessage message = sender.createMimeMessage();
+	// verify값 변경
+	public int changeVerify(String id) {
 
-		try {
+		dao = template.getMapper(MemberDaoInterface.class);
 
-			message.setSubject("[안내] 회원가입을 축하합니다.", "UTF-8");
-			String htmlMsg = "<h1>회원가입을 축하합니다.</h1>";
-			message.setText(htmlMsg, "UTF-8", "html");
-			message.setFrom(new InternetAddress("gksgpdnjs0907@nate.com"));
-			message.addRecipient(RecipientType.TO, new InternetAddress(email, "고객님", "UTF-8"));
+		int cnt = 0;
+		cnt = dao.verify(id);
 
-			sender.send(message);
+		return cnt;
+	}
 
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	// verify값 확인
+	public int verify(String id) {
+
+		dao = template.getMapper(MemberDaoInterface.class);
+
+		int cnt = 0;
+		MemberInfo memberInfo = null;
+
+		memberInfo = dao.selectMemberById(id);
+		if (memberInfo != null && memberInfo.getVerify() == 'Y') {
+
 		}
 
-		return 1;
+		return cnt;
 	}
 
 	public void send(String getuId, String code) {
 
 		MimeMessage message = sender.createMimeMessage();
+		int cnt = 0;
 
 		try {
 
@@ -60,6 +72,7 @@ public class MailSenderService {
 			message.addRecipient(RecipientType.TO, new InternetAddress(getuId, "고객님", "utf-8"));
 
 			sender.send(message);
+			cnt = 1;
 
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block

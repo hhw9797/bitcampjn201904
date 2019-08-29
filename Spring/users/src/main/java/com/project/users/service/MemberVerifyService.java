@@ -22,7 +22,7 @@ public class MemberVerifyService {
 		
 		dao = template.getMapper(MemberDaoInterface.class);
 		
-		int rCnt = dao.verify(id, code);
+		int rCnt = dao.verify(id);
 		
 		return rCnt>0?"Success":"Fail";
 	}

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.users.domain.RequestMemberRegist;
-import com.project.users.service.MailSenderService;
 import com.project.users.service.MemberRegService;
+
 
 @Controller
 @RequestMapping("/member/regist")

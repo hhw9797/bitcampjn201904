@@ -3,6 +3,7 @@ package com.project.users.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -52,29 +53,37 @@ public class MemberRestFullController {
 
 	@CrossOrigin
 	@GetMapping("/{id}")
-	public ResponseEntity<MemberInfo> getMemberInfo(@PathVariable("idx") int idx) {
-
+	public ResponseEntity<MemberInfo> getMemberInfo(@PathVariable("id") int idx) {
+		
 		MemberInfo info = editService.getEditFormData(idx);
 
 		return new ResponseEntity<MemberInfo>(info, HttpStatus.OK);
 		
 	}
 
-	/*
-	 * @CrossOrigin
-	 * 
-	 * @PutMapping("/{id}") public ResponseEntity<String>
-	 * editMember(@PathVariable("id") int id, @RequestBody RequestMemberEdit
-	 * editRequest, HttpServletRequest request) {
-	 * 
-	 * editRequest.setIdx(id);
-	 * 
-	 * System.out.println(editRequest);
-	 * 
-	 * int cnt = editService.edit(editRequest, null, request);
-	 * 
-	 * return new ResponseEntity<String>(cnt > 0 ? "success" : "fail",
-	 * HttpStatus.OK); }
-	 */
+	
+	  @CrossOrigin
+	  @PutMapping("/{id}") public ResponseEntity<String> editMember(@PathVariable("id") int id, @RequestBody RequestMemberEdit
+			  												editRequest, HttpServletRequest request) {
 
+	  editRequest.setIdx(id);
+	  
+	  System.out.println(editRequest);
+	  
+	  int cnt = editService.edit(editRequest, request);
+	  
+	  return new ResponseEntity<String>(cnt > 0 ? "success" : "fail", HttpStatus.OK); 
+	  }
+
+	  @GetMapping("/mypage/{id}")
+	  public ResponseEntity<MemberInfo> mypage(@PathVariable("idx") int idx) {
+			
+		  MemberInfo info = editService.getEditFormData(idx);
+			
+			System.out.println(info);
+
+			return new ResponseEntity<MemberInfo>(info, HttpStatus.OK);
+			
+		}
+	  
 }

@@ -1,5 +1,6 @@
 package com.project.users.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
@@ -14,6 +15,7 @@ public class MemberInfo {
 	private String uName;
 	private String uPhoto;
 	private Date regDate;
+	private String rDate;
 
 	private char verify;
 	@JsonIgnore
@@ -43,6 +45,11 @@ public class MemberInfo {
 		this.uPhoto = uPhoto;
 		this.regDate = regDate;
 		getRandomSting();
+	}
+
+	public String getrDate() {
+		SimpleDateFormat regDate = new SimpleDateFormat("yyyy-MM-dd");
+		return rDate;
 	}
 
 	public String getuId() {

@@ -23,7 +23,7 @@ public class MemberListController {
 	@GetMapping
 	@CrossOrigin
 	public ResponseEntity<List<MemberInfo>> getAllList() {
-
+		
 		List<MemberInfo> list = listService.getAllList();
 
 		ResponseEntity<List<MemberInfo>> entity = 

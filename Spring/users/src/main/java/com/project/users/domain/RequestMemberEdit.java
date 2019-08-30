@@ -8,8 +8,6 @@ public class RequestMemberEdit {
 	private String uId;
 	private String uPw;
 	private String uName;
-	private MultipartFile uPhoto;
-	private String oldFile;
 
 	public int getIdx() {
 		return idx;
@@ -41,22 +39,6 @@ public class RequestMemberEdit {
 
 	public void setuName(String uName) {
 		this.uName = uName;
-	}
-
-	public MultipartFile getuPhoto() {
-		return uPhoto;
-	}
-
-	public void setuPhoto(MultipartFile uPhoto) {
-		this.uPhoto = uPhoto;
-	}
-
-	public String getOldFile() {
-		return oldFile;
-	}
-
-	public void setOldFile(String oldFile) {
-		this.oldFile = oldFile;
 	}
 
 	@Override

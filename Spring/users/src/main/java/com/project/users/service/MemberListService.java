@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.project.users.dao.MemberDaoInterface;
 import com.project.users.domain.MemberInfo;
-import com.project.users.domain.SearchParam;
 
 @Service("listServcie")
 public class MemberListService implements MemberService {

@@ -22,7 +22,6 @@ public class MemberLoginService implements MemberService {
 			String pw, 
 			HttpServletRequest request) {
 		
-		// SqlSessionTemplate getMapper 를 이용해 dao 생성
 		dao = template.getMapper(MemberDaoInterface.class);
 	
 		LoginInfo info = null;

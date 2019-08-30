@@ -32,13 +32,14 @@ public class MemberRegService implements MemberService {
 		System.out.println(memberInfo);
 		
 		int resultCnt = 0;
+		
+		resultCnt = dao.insertMember(memberInfo);
 
 		return resultCnt;
 	}
 
 	public String idCheck(String id) {
 
-		// SqlSessionTemplate getMapper 를 이용해 dao 생성
 		dao = template.getMapper(MemberDaoInterface.class);
 
 		String chk = dao.selectMemberById2(id) == null ? "Y" : "N";

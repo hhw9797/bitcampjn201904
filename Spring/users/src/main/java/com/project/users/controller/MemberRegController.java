@@ -19,30 +19,19 @@ import com.project.users.service.MemberRegService;
 
 
 @Controller
-@RequestMapping("/member/regist")
 public class MemberRegController {
 
 	@Autowired
 	private MemberRegService registService;
 	
-	
-	/*
-	 * @CrossOrigin
-	 * 
-	 * @GetMapping public String getForm() {
-	 * 
-	 * return "member/registForm"; }
-	 */
-	 
-	
 	@CrossOrigin
-	@PostMapping
+	@PostMapping("/member/regist")
 	public ResponseEntity<String> memberRegist(RequestMemberRegist regist, HttpServletRequest request) {
 		
 		System.out.println(regist);
 		
 		int cnt = registService.memberInsert(request, regist);
-
+		
 		return new ResponseEntity<String>(cnt > 0 ? "success" : "fail", HttpStatus.OK);
 	}
 	

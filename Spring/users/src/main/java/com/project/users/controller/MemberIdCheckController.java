@@ -25,7 +25,7 @@ public class MemberIdCheckController {
 	public String idCheck2(
 			@RequestParam("id") String id
 			) {
-		
+	
 		return regService.idCheck(id) ;
 	}
 	

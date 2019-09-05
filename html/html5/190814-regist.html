@@ -79,6 +79,108 @@
 		
 		
 	});
+    
+    
+    $(document).ready(
+		
+		function() {
+
+			$.ajax({
+					url : 'http://localhost:8080/users/member/list',
+					type : 'GET',
+					success : function(data) {
+						
+						var html = '';
+
+						for (var i = 0; i < data.length; i++) {
+								html += '<tr>';
+								html += '<th scope="row1">'
+										+ data[i].idx
+										+ '</th>';
+								html += '<th scope="row2">'
+										+ data[i].uId
+										+ '</th>';
+								html += '<th scope="row3">'
+										+ data[i].uName
+										+ '</th>';
+								html += '<th scope="row4">'
+										+ data[i].regDate
+										+ '</th>';
+								html += '<th scope="row7"><button type="button" class="btn btn-primary" onclick="edit('
+									+ data[i].idx
+									+ ')" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat" value="수정하기">수정하기</button></th>';
+								html += '<th scope="row8"><button type="button" class="btn btn-danger" onclick="del('
+
+										+ data[i].idx
+
+										+ ')" value="삭제하기">삭제하기</button></th>';
+
+								html += '</tr>';
+
+								$('#memberlist').html(html);
+							}
+						}
+					})
+		});
+		
+	
+    function del(idx){
+        
+        if(confirm('삭제하시겠습니까?')){
+           $.ajax({
+                url : 'http://localhost:8080/users/members/'+idx,
+                type : 'DELETE',
+                success : function(data){
+                    if(data=='success'){
+                        alert('삭제되었습니다');
+                        location.reload();
+                    }          
+                }
+            });
+        }
+    }
+    
+    function edit(idx) {
+
+		if(confirm('수정하시겠습니까?')){
+			$.ajax({
+				url : 'http://localhost:8080/users/members/'+idx,
+				type : 'GET',
+				success : function(data) {
+					
+					$('#idx').val(idx);
+	                $('#uid').val(data.uId);
+	                $('#uname').val(data.uName);
+				}
+
+			});
+
+		}
+    }
+	
+    
+    $('#editForm').submit(function(){
+
+		$.ajax({
+			url :'http://localhost:8080/users/members/'+idx,
+		    dataType: 'text',
+	        type: 'PUT',	
+	        contentType:'application/json;chartset=utf-8',
+	        data: JSON.stringify({
+				idx:$('#idx').val(),
+				uId:$('#uid').val(),
+				uPw:$('#upw').val(),
+				uName:$('#uname').val()
+			}),
+			success : function(data){
+				if(data=='success'){
+				alert('수정되었습니다.');	
+				location.reload();
+				}
+			}
+		});
+		return false;
+    });
 </script>
 </body>
 </html>

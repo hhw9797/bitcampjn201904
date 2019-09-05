@@ -9,11 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.project.users.domain.MemberInfo;
 import com.project.users.service.MemberListService;
 
-@Controller
+@RestController
 @RequestMapping("/member/list")
 public class MemberListController {
 

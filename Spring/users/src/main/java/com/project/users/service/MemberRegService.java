@@ -20,7 +20,7 @@ public class MemberRegService implements MemberService {
 
 	private MemberDaoInterface dao;
 
-	@Inject
+	@Autowired
 	private SqlSessionTemplate template;
 
 	public int memberInsert(HttpServletRequest request, RequestMemberRegist regist) {

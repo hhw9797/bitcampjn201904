@@ -34,13 +34,12 @@
 <div id="contents">
 	
 	<h1>MyPage</h1>
-	<%-- ${loginInfo}  --%>
 	<div class="mypage_box">
 		<img alt="회원사진" src="<c:url value='/uploadfile/userphoto/${loginInfo.uPhoto}'/>">
 		회원 이름 : ${loginInfo.uName} <br>
 		회원 아이디 : ${loginInfo.uId} <br>
 	</div>
-	
+
 </div>
 <!-- 컨텐츠 끝 -->
 
